@@ -57,6 +57,41 @@
 #define COLOR_29 61
 #define COLOR_30 62
 #define COLOR_31 63
+//---Requirement 4---
+//Plants for each additional biome
+//Desert:
+#define ROUND_CACTUS 64
+#define WING_CACTUS 65
+#define DESERT_GRASS 66
+//Tundra:
+#define PUFF_FLOWER 67
+#define TUNDRA_GRASS 68
+#define HOLLY_BUSH 69
+//Jungle:
+#define MONSTERA 70
+#define POISON_FLOWER 71
+#define SNAKE_PLANT 72
+//---Requirement 3---
+//Terrains not already included
+//Desert:
+#define SANDSTONE 73
+//Jungle:
+#define FOREST 74
+//------
+#define DEAD_WOOD 75
+#define DARK_WOOD 76
+#define LIGHT_WOOD 77
+//---Requirement 7---
+//Underground blocks:
+#define IRON_ORE 78
+#define COPPER_ORE 79
+#define FOSSIL 80
+#define GOLD_ORE 81
+#define COBALT_ORE 82
+//------
+#define FOREST_DIRT 83
+#define DARK_LEAVES 84
+#define SNOW_LEAVES 85
 
 extern const int items[];
 extern const int item_count;

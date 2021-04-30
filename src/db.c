@@ -17,6 +17,8 @@ static sqlite3_stmt *load_lights_stmt;
 static sqlite3_stmt *load_signs_stmt;
 static sqlite3_stmt *get_key_stmt;
 static sqlite3_stmt *set_key_stmt;
+static sqlite3_stmt *set_seed_stmt;
+static sqlite3_stmt *get_seed_stmt;
 
 static Ring ring;
 static thrd_t thrd;
@@ -86,6 +88,13 @@ int db_init(char *path) {
         "    face int not null,"
         "    text text not null"
         ");"
+		/// \imp \ref R1 Adds a new table to the database to save world seed
+
+		//---Requirement 1---
+		"create table if not exists seed("
+		"    w int not null"
+		");"
+		//-------------------
         "create unique index if not exists block_pqxyz_idx on block (p, q, x, y, z);"
         "create unique index if not exists light_pqxyz_idx on light (p, q, x, y, z);"
         "create unique index if not exists key_pq_idx on key (p, q);"
@@ -311,6 +320,42 @@ int db_load_state(float *x, float *y, float *z, float *rx, float *ry) {
     sqlite3_finalize(stmt);
     return result;
 }
+
+/// \imp \ref R1 Access methods for world seed in database
+
+//---Requirement 1---
+//Getters and setters for the seed in the database
+void db_set_seed(int w){
+	if (!db_enabled) {
+		return;
+	}
+	static const char *query = 
+		"insert into seed (w) values (?);";
+	sqlite3_stmt *stmt;
+	sqlite3_exec(db, "delete from seed;", NULL, NULL, NULL);
+	sqlite3_prepare_v2(db, query, -1, &stmt, NULL);
+	sqlite3_bind_int(stmt, 1, w);
+	sqlite3_step(stmt);
+	sqlite3_finalize(stmt);
+}
+
+int db_get_seed(int *w) {
+	if (!db_enabled) {
+		return 0;
+	}
+	static const char *query = 
+		"select w from seed;";
+	int result = 0;
+	sqlite3_stmt *stmt;
+	sqlite3_prepare_v2(db, query, -1, &stmt, NULL);
+	if (sqlite3_step(stmt) == SQLITE_ROW) {
+		*w = sqlite3_column_int(stmt, 0);
+		result = 1;
+	}
+	sqlite3_finalize(stmt);
+	return result;
+}
+//-------------------
 
 void db_insert_block(int p, int q, int x, int y, int z, int w) {
     if (!db_enabled) {

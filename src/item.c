@@ -2,20 +2,36 @@
 #include "util.h"
 
 const int items[] = {
+	/// \imp \ref R3 Adds new terrain to crafting options
+	/// \imp \ref R4 Adds new plants to crafting options
+	/// \imp \ref R7 Adds underground blocks to crafting options 
+	/// \imp \ref R23 Adds tree and leaf blocks to crafting options
+
     // items the user can build
     GRASS,
+	DIRT,
+    FOREST,
+	FOREST_DIRT,
     SAND,
+    SANDSTONE,
     STONE,
     BRICK,
     WOOD,
+    DEAD_WOOD,
+    DARK_WOOD,
+    LIGHT_WOOD,
     CEMENT,
-    DIRT,
     PLANK,
     SNOW,
     GLASS,
     COBBLE,
     LIGHT_STONE,
     DARK_STONE,
+	IRON_ORE,
+	COPPER_ORE,
+	COBALT_ORE,
+	GOLD_ORE,
+	FOSSIL,
     CHEST,
     LEAVES,
     TALL_GRASS,
@@ -25,6 +41,15 @@ const int items[] = {
     SUN_FLOWER,
     WHITE_FLOWER,
     BLUE_FLOWER,
+    ROUND_CACTUS,
+    WING_CACTUS,
+    DESERT_GRASS,
+    PUFF_FLOWER,
+    TUNDRA_GRASS,
+    HOLLY_BUSH,
+    MONSTERA,
+    POISON_FLOWER,
+    SNAKE_PLANT,
     COLOR_00,
     COLOR_01,
     COLOR_02,
@@ -127,6 +152,34 @@ const int blocks[256][6] = {
     {205, 205, 205, 205, 205, 205}, // 61
     {206, 206, 206, 206, 206, 206}, // 62
     {207, 207, 207, 207, 207, 207}, // 63
+    {0, 0, 0, 0, 0, 0}, // 64
+    {0, 0, 0, 0, 0, 0}, // 65
+    {0, 0, 0, 0, 0, 0}, // 66
+    {0, 0, 0, 0, 0, 0}, // 67
+    {0, 0, 0, 0, 0, 0}, // 68
+    {0, 0, 0, 0, 0, 0}, // 69
+    {0, 0, 0, 0, 0, 0}, // 70
+    {0, 0, 0, 0, 0, 0}, // 71
+    {0, 0, 0, 0, 0, 0}, // 72
+	/// \imp \ref R3 Builds terrain block textures
+    //---Requirement 3---
+    {17, 17, 17, 17, 17, 17}, // 73 - sandstone
+    {25, 25, 41, 0, 25, 25}, // 74 - forest
+	/// \imp \ref R23 Builds tree block textures
+    {21, 21, 37, 37, 21, 21}, // 75 - dead wood
+    {22, 22, 38, 38, 22, 22}, // 76 - dark wood
+    {23, 23, 39, 39, 23, 23}, // 77 - light wood
+	/// \imp \ref R7 Builds underground block textures
+    //---Requirement 7---
+	{33, 33, 5, 5, 33, 33}, // 78 - iron ore
+	{34, 34, 5, 5, 34, 34}, // 79 - copper ore
+	{35, 35, 5, 5, 35, 35}, // 80 - fossil
+	{18, 18, 5, 5, 18, 18}, // 81 - gold ore
+	{19, 19, 5, 5, 19, 19}, // 82 - cobalt ore
+	{26, 26, 26, 26, 26, 26}, // 83 - forest dirt
+	/// \imp \ref R23 Builds leaf block textures
+	{42, 42, 42, 42, 42, 42}, // 84 - dark leaves
+	{42, 42, 40, 42, 42, 42}, // 85 - snow leaves
 };
 
 const int plants[256] = {
@@ -139,6 +192,23 @@ const int plants[256] = {
     52, // 21 - sun flower
     53, // 22 - white flower
     54, // 23 - blue flower
+	/// \imp \ref R4 Adds new plants to plant array
+    //---Requirement 4---
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 24 - 40
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 41 - 57
+    0, 0, 0, 0, 0, 0, // 58 - 60
+    //Desert:
+    55, // 64 - round cactus
+    56, // 65 - wing cactus
+    57, // 66 - desert grass
+    //Tundra:
+    58, // 67 - puff flower
+    59, // 68 - tundra grass
+    60, // 69 - holly bush
+    //Jungle:
+    61, // 70 - monstera
+    62, // 71 - poison flower
+    63, // 72 - snake plant
 };
 
 int is_plant(int w) {
@@ -150,6 +220,15 @@ int is_plant(int w) {
         case SUN_FLOWER:
         case WHITE_FLOWER:
         case BLUE_FLOWER:
+		case ROUND_CACTUS:
+		case WING_CACTUS:
+		case DESERT_GRASS:
+		case PUFF_FLOWER:
+		case TUNDRA_GRASS:
+		case HOLLY_BUSH:
+		case MONSTERA:
+		case POISON_FLOWER:
+		case SNAKE_PLANT:
             return 1;
         default:
             return 0;
@@ -182,6 +261,9 @@ int is_transparent(int w) {
         case EMPTY:
         case GLASS:
         case LEAVES:
+		/// \imp \ref R23 Adds new leaves as transparent blocks
+		case DARK_LEAVES:
+		case SNOW_LEAVES:
             return 1;
         default:
             return 0;
