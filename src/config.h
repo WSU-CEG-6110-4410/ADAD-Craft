@@ -43,6 +43,10 @@
 #define CRAFT_KEY_COMMAND '/'
 #define CRAFT_KEY_SIGN '`'
 
+/// This assigns the left Alt key to increase the movement speed in game, when the key is pressed on the user's keyboard
+/// Corresponds to function handle_movement in main.c
+#define CRAFT_KEY_SPRINT GLFW_KEY_LEFT_ALT
+
 // advanced parameters
 #define CREATE_CHUNK_RADIUS 10
 #define RENDER_CHUNK_RADIUS 10
