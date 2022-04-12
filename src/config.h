@@ -43,6 +43,10 @@
 #define CRAFT_KEY_COMMAND '/'
 #define CRAFT_KEY_SIGN '`'
 
+/// Addresses issue #22 at link https://github.com/orgs/WSU-CEG-6110-4410/projects/9/views/1
+/// Corresponds to function handle_movement in main.c
+#define CRAFT_KEY_SPRINT GLFW_KEY_LEFT_ALT
+
 // advanced parameters
 #define CREATE_CHUNK_RADIUS 10
 #define RENDER_CHUNK_RADIUS 10
