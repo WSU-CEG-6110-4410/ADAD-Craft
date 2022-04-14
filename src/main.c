@@ -156,6 +156,11 @@ typedef struct {
 static Model model;
 static Model *g = &model;
 
+// Both equal 1 while game is running
+// Comments needed here
+int playing = 1;
+int running = 1;
+
 int chunked(float x) {
     return floorf(roundf(x) / CHUNK_SIZE);
 }
@@ -1430,7 +1435,9 @@ void ensure_chunks(Player *player) {
 
 int worker_run(void *arg) {
     Worker *worker = (Worker *)arg;
-    int running = 1;
+
+    // Comment here
+    running = 1;
     while (running) {
         mtx_lock(&worker->mtx);
         while (worker->state != WORKER_BUSY) {
@@ -2271,6 +2278,13 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods) {
         if (key == CRAFT_KEY_OBSERVE_INSET) {
             g->observe2 = (g->observe2 + 1) % g->player_count;
         }
+
+	// Exits the game
+	// Comment here
+	if (key == CRAFT_KEY_QUIT) {
+	    playing = 0;
+	    running = 0;
+	} 
     }
 }
 
@@ -2727,7 +2741,8 @@ int main(int argc, char **argv) {
     }
 
     // OUTER LOOP //
-    int running = 1;
+    // Comment here
+    running = 1;
     while (running) {
         // DATABASE INITIALIZATION //
         if (g->mode == MODE_OFFLINE || USE_CACHE) {
@@ -2773,7 +2788,8 @@ int main(int argc, char **argv) {
 
         // BEGIN MAIN LOOP //
         double previous = glfwGetTime();
-        while (1) {
+	// Comment here
+        while (playing == 1) {
             // WINDOW SIZE AND SCALE //
             g->scale = get_scale_factor();
             glfwGetFramebufferSize(g->window, &g->width, &g->height);
