@@ -2433,7 +2433,7 @@ void handle_movement(double dt) {
             if (g->flying) {
                 vy = 1;
             }
-            else if (dy == 0) {
+            else {
                 dy = 8;
             }
         }
