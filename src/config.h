@@ -47,6 +47,9 @@
 /// Corresponds to function handle_movement in main.c
 #define CRAFT_KEY_SPRINT GLFW_KEY_LEFT_ALT
 
+// Quit button key binding
+#define CRAFT_KEY_QUIT 'Q'
+
 // advanced parameters
 #define CREATE_CHUNK_RADIUS 10
 #define RENDER_CHUNK_RADIUS 10
