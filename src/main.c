@@ -224,6 +224,17 @@ void get_motion_vector(int flying, int sz, int sx, float rx, float ry,
         *vy = y;
         *vz = sinf(rx + strafe) * m;
     }
+
+    /// On Key hold, speed increase by 2 
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/26
+    /// @param[in] CRAFT_KEY_SPRINT
+    /// no precondition or postCondition I can think of
+
+    if (glfwGetKey(g->window, CRAFT_KEY_SPRINT)) {
+        *vx = 2 * cosf(rx + strafe);
+        *vy = 0;
+        *vz = 2 * sinf(rx + strafe);
+    }
     else {
         *vx = cosf(rx + strafe);
         *vy = 0;
@@ -2425,6 +2436,7 @@ void handle_movement(double dt) {
         if (glfwGetKey(g->window, GLFW_KEY_RIGHT)) s->rx += m;
         if (glfwGetKey(g->window, GLFW_KEY_UP)) s->ry += m;
         if (glfwGetKey(g->window, GLFW_KEY_DOWN)) s->ry -= m;
+        
     }
     float vx, vy, vz;
     get_motion_vector(g->flying, sz, sx, s->rx, s->ry, &vx, &vy, &vz);
