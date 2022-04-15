@@ -95,6 +95,7 @@ the client.
 
 - WASD to move forward, left, backward, right.
 - Space to jump.
+- Hold Left Alt key to move around twice as fast
 - Left Click to destroy a block.
 - Right Click or Cmd + Left Click to create a block.
 - Ctrl + Right Click to toggle a block as a light source.
