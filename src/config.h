@@ -47,7 +47,8 @@
 /// Corresponds to function handle_movement in main.c
 #define CRAFT_KEY_SPRINT GLFW_KEY_LEFT_ALT
 
-// Quit button key binding
+/// Quit button binds to the Q key
+/// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/29
 #define CRAFT_KEY_QUIT 'Q'
 
 // advanced parameters

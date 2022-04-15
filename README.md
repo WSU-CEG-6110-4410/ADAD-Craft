@@ -112,6 +112,7 @@ the client.
 - Backquote (`) to write text on any block (signs).
 - Arrow keys emulate mouse movement.
 - Enter emulates mouse click.
+- Q to quit the game.
 
 ### Chat Commands
 

@@ -156,10 +156,10 @@ typedef struct {
 static Model model;
 static Model *g = &model;
 
-// Both equal 1 while game is running
-// Comments needed here
-int playing = 1;
-int running = 1;
+/// Both equal 1 until the game ends
+/// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30 
+int playing = 1; /// correlates to inner main loop
+int running = 1; /// correlates to outer main loop
 
 int chunked(float x) {
     return floorf(roundf(x) / CHUNK_SIZE);
@@ -1447,8 +1447,10 @@ void ensure_chunks(Player *player) {
 int worker_run(void *arg) {
     Worker *worker = (Worker *)arg;
 
-    // Comment here
+    /// Running was changed to global variable
+    /// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30 
     running = 1;
+
     while (running) {
         mtx_lock(&worker->mtx);
         while (worker->state != WORKER_BUSY) {
@@ -2290,8 +2292,10 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods) {
             g->observe2 = (g->observe2 + 1) % g->player_count;
         }
 
-	// Exits the game
-	// Comment here
+	/// If 'Q' is pressed, the game quits by satisfying the leave
+	/// conditions of both the inner and outer loops of the main
+	/// function.
+	/// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30
 	if (key == CRAFT_KEY_QUIT) {
 	    playing = 0;
 	    running = 0;
@@ -2753,7 +2757,8 @@ int main(int argc, char **argv) {
     }
 
     // OUTER LOOP //
-    // Comment here
+    /// Running was changed to global variable
+    /// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30
     running = 1;
     while (running) {
         // DATABASE INITIALIZATION //
@@ -2800,7 +2805,9 @@ int main(int argc, char **argv) {
 
         // BEGIN MAIN LOOP //
         double previous = glfwGetTime();
-	// Comment here
+
+	/// Infinite while loop changed to have a leave condition
+	/// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30
         while (playing == 1) {
             // WINDOW SIZE AND SCALE //
             g->scale = get_scale_factor();
