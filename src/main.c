@@ -2838,7 +2838,6 @@ int main(int argc, char **argv) {
 
         // LOAD STATE FROM DATABASE //
         int loaded = db_load_state(&s->x, &s->y, &s->z, &s->rx, &s->ry);
-        loaded = 0;
         force_chunks(me);
         if (!loaded) {
             s->y = highest_block(s->x, s->z) + 2;
