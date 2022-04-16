@@ -135,6 +135,7 @@ typedef struct {
     int observe1;
     int observe2;
     int flying;
+    int no_clip;
     int item_index;
     int scale;
     int ortho;
@@ -748,6 +749,35 @@ int collide(int height, float *x, float *y, float *z) {
         }
         if (pz > pad && is_obstacle(map_get(map, nx, ny - dy, nz + 1))) {
             *z = nz + pad;
+        }
+    }
+    return result;
+}
+
+int collide_no_clip(int height, float *x, float *y, float *z) {
+    int result = 0;
+    int p = chunked(*x);
+    int q = chunked(*z);
+    Chunk *chunk = find_chunk(p, q);
+    if (!chunk) {
+        return result;
+    }
+    Map *map = &chunk->map;
+    int nx = roundf(*x);
+    int ny = roundf(*y);
+    int nz = roundf(*z);
+    float px = *x - nx;
+    float py = *y - ny;
+    float pz = *z - nz;
+    float pad = 0.25;
+    for (int dy = 0; dy < height; dy++) {
+        if (py < -pad && is_obstacle(map_get(map, nx, ny - dy - 1, nz))) {
+            *y = ny - pad;
+            result = 1;
+        }
+        if (py > pad && is_obstacle(map_get(map, nx, ny - dy + 1, nz))) {
+            *y = ny + pad;
+            result = 1;
         }
     }
     return result;
@@ -2265,6 +2295,9 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods) {
         }
     }
     if (!g->typing) {
+        if (key == CRAFT_KEY_NO_CLIP) {
+            g->no_clip = !g->no_clip;
+        }
         if (key == CRAFT_KEY_FLY) {
             g->flying = !g->flying;
         }
@@ -2485,8 +2518,15 @@ void handle_movement(double dt) {
         s->x += vx;
         s->y += vy + dy * ut;
         s->z += vz;
-        if (collide(2, &s->x, &s->y, &s->z)) {
+        if (g->no_clip) {
+            if (collide_no_clip(2, &s->x, &s->y, &s->z)) {
             dy = 0;
+            }
+        }
+        else {
+            if (collide(2, &s->x, &s->y, &s->z)) {
+            dy = 0;
+            }
         }
     }
     if (s->y < 0) {
@@ -2793,6 +2833,7 @@ int main(int argc, char **argv) {
 
         // LOAD STATE FROM DATABASE //
         int loaded = db_load_state(&s->x, &s->y, &s->z, &s->rx, &s->ry);
+        loaded = 0;
         force_chunks(me);
         if (!loaded) {
             s->y = highest_block(s->x, s->z) + 2;
@@ -2800,7 +2841,7 @@ int main(int argc, char **argv) {
 
         // BEGIN MAIN LOOP //
         double previous = glfwGetTime();
-	// Comment here
+	    // Comment here
         while (playing == 1) {
             // WINDOW SIZE AND SCALE //
             g->scale = get_scale_factor();
