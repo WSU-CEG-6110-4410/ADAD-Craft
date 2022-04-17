@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <ctype.h>
 #include "auth.h"
 #include "client.h"
 #include "config.h"
@@ -2173,6 +2174,32 @@ void parse_command(const char *buffer, int forward) {
     else if (sscanf(buffer, "/cylinder %d", &radius) == 1) {
         cylinder(&g->block0, &g->block1, radius, 0);
     }
+
+    /// Allows the player to select a block using the command line.
+    /// This can be done by typing in the number corresponding to 
+    /// the block they want to use.
+    /// [issue] ithub.com/WSU-CEG-6110-4410/ADAD-Craft/issues/40
+    char bufferCopy[1024];
+    strcpy(bufferCopy, buffer);
+    char* command = strtok(bufferCopy, "/");
+
+    // Checks to make sure the command is a number
+    int i;
+    int isInteger = 1;
+    for (i = 0; i < strlen(command); i++) {
+	    if(!isdigit(command[i])) {
+		    isInteger = 0;
+	    }
+    }
+    
+    // Checks to see if number is valid block. If it is, the block changes
+    if (isInteger) {
+	int num = atoi(command);
+	if (num >= 0 && num <= (item_count - 1)) {
+		g->item_index = atoi(command);
+	}
+    }
+
     else if (forward) {
         client_talk(buffer);
     }
