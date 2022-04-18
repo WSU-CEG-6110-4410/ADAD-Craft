@@ -2179,6 +2179,8 @@ void parse_command(const char *buffer, int forward) {
     /// This can be done by typing in the number corresponding to 
     /// the block they want to use.
     /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/40
+    /// The guide to use this is in README.md
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/48
     char bufferCopy[1024];
     strcpy(bufferCopy, buffer);
     char* command = strtok(bufferCopy, "/");
