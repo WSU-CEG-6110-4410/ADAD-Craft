@@ -159,7 +159,7 @@ static Model model;
 static Model *g = &model;
 
 /// Both equal 1 until the game ends
-/// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30 
+/// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30 
 int playing = 1; /// correlates to inner main loop
 int running = 1; /// correlates to outer main loop
 
@@ -1479,7 +1479,7 @@ int worker_run(void *arg) {
     Worker *worker = (Worker *)arg;
 
     /// Running was changed to global variable
-    /// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30 
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30 
     running = 1;
 
     while (running) {
@@ -2178,7 +2178,7 @@ void parse_command(const char *buffer, int forward) {
     /// Allows the player to select a block using the command line.
     /// This can be done by typing in the number corresponding to 
     /// the block they want to use.
-    /// [issue] ithub.com/WSU-CEG-6110-4410/ADAD-Craft/issues/40
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/40
     char bufferCopy[1024];
     strcpy(bufferCopy, buffer);
     char* command = strtok(bufferCopy, "/");
@@ -2355,7 +2355,7 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods) {
 	/// If 'Q' is pressed, the game quits by satisfying the leave
 	/// conditions of both the inner and outer loops of the main
 	/// function.
-	/// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30
+	/// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30
 	if (key == CRAFT_KEY_QUIT) {
 	    playing = 0;
 	    running = 0;
@@ -2825,7 +2825,7 @@ int main(int argc, char **argv) {
 
     // OUTER LOOP //
     /// Running was changed to global variable
-    /// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30
     running = 1;
     while (running) {
         // DATABASE INITIALIZATION //
@@ -2874,7 +2874,7 @@ int main(int argc, char **argv) {
         double previous = glfwGetTime();
 
 	/// Infinite while loop changed to have a leave condition
-	/// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30
+	/// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30
         while (playing == 1) {
             // WINDOW SIZE AND SCALE //
             g->scale = get_scale_factor();
