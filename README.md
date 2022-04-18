@@ -156,63 +156,63 @@ Teleport back to the spawn point.
 
 You can select a block through the command line. Just type in the number that corresponds to the block you wish to use.
 
-0- grass
-1- sand
-2- stone
-3- brick
-4- wood
-5- cement
-6- dirt
-7- plank
-8- snow
-9- glass
-10- cobble
-11- light stone
-12- dark stone
-13- chest
-14- leaves
-15- tall grass
-16- yellow flower
-17- red flower
-18- purple flower
-19- sunflower
-20- white flower
-21- blue flower
-22- yellow block
-23- light green block
-24- green block
-25- teal block
-26- dark green block
-27- brown-green block
-28- dark gray block
-29- indigo block
-30- light gray block
-31- gray block
-32- purple block
-33- red block
-34- light red block
-35- pink block
-36- very light green block
-37- brown-yellow block
-38- black block
-39- very dark blue block
-40- dark purple block
-41- dusty red block
-42- brown block
-43- orange block
-44- tan block
-45- cream block
-46- dark blue block
-47- blue block
-48- light blue block
-49- turquoise block
-50- powder blue block
-51- white block
-52- blue-gray block
-53- purple-gray block
-54- diamond
-55- ruby
-56- gold
+- 0- grass
+- 1- sand
+- 2- stone
+- 3- brick
+- 4- wood
+- 5- cement
+- 6- dirt
+- 7- plank
+- 8- snow
+- 9- glass
+- 10- cobble
+- 11- light stone
+- 12- dark stone
+- 13- chest
+- 14- leaves
+- 15- tall grass
+- 16- yellow flower
+- 17- red flower
+- 18- purple flower
+- 19- sunflower
+- 20- white flower
+- 21- blue flower
+- 22- yellow block
+- 23- light green block
+- 24- green block
+- 25- teal block
+- 26- dark green block
+- 27- brown-green block
+- 28- dark gray block
+- 29- indigo block
+- 30- light gray block
+- 31- gray block
+- 32- purple block
+- 33- red block
+- 34- light red block
+- 35- pink block
+- 36- very light green block
+- 37- brown-yellow block
+- 38- black block
+- 39- very dark blue block
+- 40- dark purple block
+- 41- dusty red block
+- 42- brown block
+- 43- orange block
+- 44- tan block
+- 45- cream block
+- 46- dark blue block
+- 47- blue block
+- 48- light blue block
+- 49- turquoise block
+- 50- powder blue block
+- 51- white block
+- 52- blue-gray block
+- 53- purple-gray block
+- 54- diamond
+- 55- ruby
+- 56- gold
 
 ### Screenshot
 
