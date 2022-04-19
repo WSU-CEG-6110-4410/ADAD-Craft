@@ -12,7 +12,7 @@
 #define DB_PATH "craft.db"
 #define USE_CACHE 1
 
-#define DAY_LENGTH 1000
+#define DAY_LENGTH 1200
 
 #define INVERT_MOUSE 0
 
