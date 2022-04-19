@@ -11,7 +11,12 @@
 #define MAX_MESSAGES 4
 #define DB_PATH "craft.db"
 #define USE_CACHE 1
-#define DAY_LENGTH 600
+
+/// Increased from 600 to 1200
+/// A 12-hour cycle in game now lasts approximately 10 minutes in real life
+/// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/51
+#define DAY_LENGTH 1200
+
 #define INVERT_MOUSE 0
 
 // rendering options
