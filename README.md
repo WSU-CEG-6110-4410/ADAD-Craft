@@ -152,6 +152,10 @@ Teleport to the specified chunk.
 
 Teleport back to the spawn point.
 
+   /random
+
+Gives you a random block.
+
 ### Block Commands
 
 You can select a block through the command line. Just type in the number that corresponds to the block you wish to use.
