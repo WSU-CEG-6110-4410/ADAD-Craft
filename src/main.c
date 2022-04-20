@@ -2219,12 +2219,11 @@ void parse_command(const char *buffer, int forward) {
     }
 
     int x, y, z;
-    if(sscanf(buffer, "/teleport %d", &y) == 1) {
-	printf("Reached this!\n");
+    if(sscanf(buffer, "/teleport %d %d %d", &x, &y, &z) == 3) {
         State *s = &g->players->state;
-       // s->x = x;
+       	s->x = x;
 	s->y = y;	
-       // s->z = z;
+        s->z = z;
     }
 
     else if (forward) {
