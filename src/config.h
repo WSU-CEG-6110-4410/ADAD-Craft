@@ -48,6 +48,8 @@
 #define CRAFT_KEY_CHAT 't'
 #define CRAFT_KEY_COMMAND '/'
 #define CRAFT_KEY_SIGN '`'
+
+/**Creating key binding for [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/71 */   
 #define CRAFT_KEY_CLOSE_TERMINAL 'M'
 
 /// Addresses issue #22 at link https://github.com/orgs/WSU-CEG-6110-4410/projects/9/views/1
