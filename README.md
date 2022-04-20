@@ -152,7 +152,7 @@ Teleport to the specified chunk.
 
 Teleport back to the spawn point.
 ```
-   /random
+/random
 ```
 Gives you a random block.
 
