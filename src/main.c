@@ -2507,6 +2507,7 @@ void handle_movement(double dt) {
     if (!g->typing) {
         float m = dt * 1.0;
         g->ortho = glfwGetKey(g->window, CRAFT_KEY_ORTHO) ? 64 : 0;
+        /**Zoom parameter values have been changed to view the clouds from the ground very closely*/
         g->fov = glfwGetKey(g->window, CRAFT_KEY_ZOOM) ? 15 : 105;
         if (glfwGetKey(g->window, CRAFT_KEY_FORWARD)) sz--;
         if (glfwGetKey(g->window, CRAFT_KEY_BACKWARD)) sz++;
