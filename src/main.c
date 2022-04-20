@@ -2218,6 +2218,15 @@ void parse_command(const char *buffer, int forward) {
 	}
     }
 
+    int x, y, z;
+    if(sscanf(buffer, "/teleport %d", &y) == 1) {
+	printf("Reached this!\n");
+        State *s = &g->players->state;
+       // s->x = x;
+	s->y = y;	
+       // s->z = z;
+    }
+
     else if (forward) {
         client_talk(buffer);
     }
