@@ -48,6 +48,7 @@
 #define CRAFT_KEY_CHAT 't'
 #define CRAFT_KEY_COMMAND '/'
 #define CRAFT_KEY_SIGN '`'
+#define CRAFT_KEY_CLOSE_TERMINAL 'M'
 
 /// Addresses issue #22 at link https://github.com/orgs/WSU-CEG-6110-4410/projects/9/views/1
 /// Corresponds to function handle_movement in main.c

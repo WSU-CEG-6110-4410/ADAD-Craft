@@ -2295,6 +2295,10 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods) {
             glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
         }
     }
+    if(key==CRAFT_KEY_CLOSE_TERMINAL)
+    {
+        glfwTerminate();
+    }
     if (key == GLFW_KEY_ENTER) {
         if (g->typing) {
             if (mods & GLFW_MOD_SHIFT) {
