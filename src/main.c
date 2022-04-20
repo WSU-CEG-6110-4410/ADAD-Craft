@@ -2178,6 +2178,14 @@ void parse_command(const char *buffer, int forward) {
         cylinder(&g->block0, &g->block1, radius, 0);
     }
 
+    else if(strcmp(buffer, "/random") == 0) {
+	int min = 0;
+	int max = item_count - 1;
+	int random = (rand() % (max - min + 1)) + min;
+	printf("%d\n", random);
+	g->item_index = random;
+    }
+
     /// Allows the player to select a block using the command line.
     /// This can be done by typing in the number corresponding to 
     /// the block they want to use.
