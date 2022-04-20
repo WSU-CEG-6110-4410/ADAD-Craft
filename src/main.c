@@ -2502,6 +2502,9 @@ void handle_mouse_input() {
     }
 }
 
+/**Function to handle the player movement through keys*/
+/** [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/61 */
+
 void handle_movement(double dt) {
     static float dy = 0;
     State *s = &g->players->state;
