@@ -151,6 +151,10 @@ Teleport to the specified chunk.
     /spawn
 
 Teleport back to the spawn point.
+```
+/random
+```
+Gives you a random block.
 
 ### Block Commands
 

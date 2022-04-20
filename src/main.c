@@ -2178,6 +2178,19 @@ void parse_command(const char *buffer, int forward) {
         cylinder(&g->block0, &g->block1, radius, 0);
     }
 
+    /// Command that gives user random block from range of block numbers.
+    /// Right now, it's set up for the whole list. DO NOT make the min 
+    /// smaller than 0 or the max larger than the item_count - 1.
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/65
+    /// The README.md file contains info about this command.
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/66
+    else if(strcmp(buffer, "/random") == 0) {
+	int min = 0;
+	int max = item_count - 1;
+	int random = (rand() % (max - min + 1)) + min;
+	g->item_index = random;
+    }
+
     /// Allows the player to select a block using the command line.
     /// This can be done by typing in the number corresponding to 
     /// the block they want to use.
