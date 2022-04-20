@@ -2508,6 +2508,7 @@ void handle_movement(double dt) {
         float m = dt * 1.0;
         g->ortho = glfwGetKey(g->window, CRAFT_KEY_ORTHO) ? 64 : 0;
         /**Zoom parameter values have been changed to view the clouds from the ground very closely*/
+        /** [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/54 */
         g->fov = glfwGetKey(g->window, CRAFT_KEY_ZOOM) ? 15 : 105;
         if (glfwGetKey(g->window, CRAFT_KEY_FORWARD)) sz--;
         if (glfwGetKey(g->window, CRAFT_KEY_BACKWARD)) sz++;
