@@ -2223,11 +2223,28 @@ void parse_command(const char *buffer, int forward) {
     /// Command to teleport in the map by inputing x,y,z coordinates
     /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/69
     int x, y, z;
+    State *s = &g->players->state;
     if(sscanf(buffer, "/teleport %d %d %d", &x, &y, &z) == 3) {
-        State *s = &g->players->state;
        	s->x = x;
 	s->y = y;	
         s->z = z;
+    }
+
+    /// Allows the user to teleport using only one coordinate
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/74
+    // x-coordinate teleport
+    if(sscanf(buffer, "/teleport_x %d", &x) == 1) {
+	s->x = x;
+    }
+
+    // y-coordinate teleport
+    if(sscanf(buffer, "/teleport_y %d", &y) == 1) {
+	s->y = y;
+    }
+
+    // z-coordinate teleport
+    if(sscanf(buffer, "/teleport_z %d", &z) == 1) {
+	s->z = z;
     }
 
     else if (forward) {
