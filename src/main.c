@@ -2307,12 +2307,7 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods) {
             glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
         }
     }
-    /**Terminating of the window on click on Key M*/
-        /** [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/71 */
-    if(key==CRAFT_KEY_CLOSE_TERMINAL)
-    {
-        glfwTerminate();
-    }
+    
     if (key == GLFW_KEY_ENTER) {
         if (g->typing) {
             if (mods & GLFW_MOD_SHIFT) {
@@ -2396,6 +2391,13 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods) {
 	    playing = 0;
 	    running = 0;
 	} 
+/**Terminating of the window wihtout getting game saved on click on Key M*/
+        /** [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/71 */     
+    if(key==CRAFT_KEY_CLOSE_TERMINAL)
+    {
+        glfwTerminate();
+    }
+
     }
 }
 
