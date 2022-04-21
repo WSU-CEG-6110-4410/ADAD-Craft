@@ -2187,8 +2187,10 @@ void parse_command(const char *buffer, int forward) {
     else if(strcmp(buffer, "/random") == 0) {
 	int min = 0;
 	int max = item_count - 1;
-	int random = (rand() % (max - min + 1)) + min;
-	g->item_index = random;
+	if (min >= 0 && max <= (item_count - 1)) {
+		int random = (rand() % (max - min + 1)) + min;
+		g->item_index = random;
+	}
     }
 
     /// Allows the player to select a block using the command line.
@@ -2216,6 +2218,16 @@ void parse_command(const char *buffer, int forward) {
 	if (num >= 0 && num <= (item_count - 1)) {
 		g->item_index = atoi(command);
 	}
+    }
+
+    /// Command to teleport in the map by inputing x,y,z coordinates
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/69
+    int x, y, z;
+    if(sscanf(buffer, "/teleport %d %d %d", &x, &y, &z) == 3) {
+        State *s = &g->players->state;
+       	s->x = x;
+	s->y = y;	
+        s->z = z;
     }
 
     else if (forward) {
