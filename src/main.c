@@ -20,6 +20,7 @@
 #include "tinycthread.h"
 #include "util.h"
 #include "world.h"
+#include "assert.h"
 
 #define MAX_CHUNKS 8192
 #define MAX_PLAYERS 128
@@ -237,10 +238,18 @@ void get_motion_vector(int flying, int sz, int sx, float rx, float ry,
     /// @param[in] CRAFT_KEY_SPRINT
     /// no precondition or postCondition I can think of
 
+
     if (glfwGetKey(g->window, CRAFT_KEY_SPRINT)) {
+        /// Preconditions for programming by contract
+        /// g->window needs to exist
+        assert(NULL != g->window);;
+
         *vx = 2 * cosf(rx + strafe);
         *vy = 0;
         *vz = 2 * sinf(rx + strafe);
+
+        /// Check if window is not closed
+        assert(g->window != NULL);
     }
     else {
         *vx = cosf(rx + strafe);
