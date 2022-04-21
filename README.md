@@ -113,6 +113,7 @@ the client.
 - Arrow keys emulate mouse movement.
 - Enter emulates mouse click.
 - Q to quit the game.
+- M to terminate the game and terminal without saving.
 
 ### Chat Commands
 
