@@ -2233,17 +2233,17 @@ void parse_command(const char *buffer, int forward) {
     /// Allows the user to teleport using only one coordinate
     /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/74
     // x-coordinate teleport
-    if(sscanf(buffer, "/teleport_x %d", &x) == 1) {
+    if(sscanf(buffer, "/teleport_x %d", &x) == 1 | sscanf(buffer, "/portx %d", &x) == 1) {
 	s->x = x;
     }
 
     // y-coordinate teleport
-    if(sscanf(buffer, "/teleport_y %d", &y) == 1) {
+    if(sscanf(buffer, "/teleport_y %d", &y) == 1 | sscanf(buffer, "/porty %d", &y) == 1) {
 	s->y = y;
     }
 
     // z-coordinate teleport
-    if(sscanf(buffer, "/teleport_z %d", &z) == 1) {
+    if(sscanf(buffer, "/teleport_z %d", &z) == 1 | sscanf(buffer, "/portz %d", &z) == 1) {
 	s->z = z;
     }
 
