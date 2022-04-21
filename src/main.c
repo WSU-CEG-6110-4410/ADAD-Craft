@@ -2218,6 +2218,8 @@ void parse_command(const char *buffer, int forward) {
 	}
     }
 
+    /// Command to teleport in the map by inputing x,y,z coordinates
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/69
     int x, y, z;
     if(sscanf(buffer, "/teleport %d %d %d", &x, &y, &z) == 3) {
         State *s = &g->players->state;
