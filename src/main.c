@@ -2184,7 +2184,7 @@ void parse_command(const char *buffer, int forward) {
     /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/65
     /// The README.md file contains info about this command.
     /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/66
-    else if(strcmp(buffer, "/rando") == 0) {
+    else if(strcmp(buffer, "/random") == 0) {
 	int min = 0;
 	int max = item_count - 1;
 	if (min >= 0 && max <= (item_count - 1)) {
