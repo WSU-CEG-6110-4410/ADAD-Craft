@@ -2250,6 +2250,20 @@ void parse_command(const char *buffer, int forward) {
     else if (forward) {
         client_talk(buffer);
     }
+    
+    ///Command to change the time of day to morning (dawn)
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/17
+    if (sscanf(buffer,"/dawn"))
+    {
+    	
+    }
+    
+    /// Command to change the time of day to night (dusk)
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/17
+    if (sscanf(buffer,"/dusk"))
+    {
+    	
+    }
 }
 
 void on_light() {
