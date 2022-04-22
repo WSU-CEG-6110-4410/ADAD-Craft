@@ -156,6 +156,22 @@ Teleport back to the spawn point.
 /random
 ```
 Gives you a random block.
+```
+/teleport [X] [Y] [Z]
+```
+Teleport using the specified coordinates.
+```
+/portx [X]
+```
+Teleport using the specified x-coordinate.
+```
+/porty [Y]
+```
+Teleport using the specified y-coordinate.
+```
+/portz [Z]
+```
+Teleport using the specified z-coordinate.
 
 ### Block Commands
 
