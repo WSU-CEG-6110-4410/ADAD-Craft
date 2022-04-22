@@ -2630,6 +2630,8 @@ void parse_command(const char *buffer, int forward)
 
     /// Command to teleport in the map by inputing x,y,z coordinates
     /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/69
+    /// Information about this command can be found in the README.md file
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/70
     int x, y, z;
     State *s = &g->players->state;
     if (sscanf(buffer, "/teleport %d %d %d", &x, &y, &z) == 3)
@@ -2641,7 +2643,10 @@ void parse_command(const char *buffer, int forward)
 
     /// Allows the user to teleport using only one coordinate
     /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/74
+    /// Information about these commands can be found in the README.md file
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/70
     // x-coordinate teleport
+/// DoxygenTextureComments
     if (sscanf(buffer, "/teleport_x %d", &x) == 1 | sscanf(buffer, "/portx %d", &x) == 1)
     {
         s->x = x;
@@ -2657,6 +2662,20 @@ void parse_command(const char *buffer, int forward)
     if (sscanf(buffer, "/teleport_z %d", &z) == 1 | sscanf(buffer, "/portz %d", &z) == 1)
     {
         s->z = z;
+=======
+    if(sscanf(buffer, "/portx %d", &x) == 1) {
+	s->x = x;
+    }
+
+    // y-coordinate teleport
+    if(sscanf(buffer, "/porty %d", &y) == 1) {
+	s->y = y;
+    }
+
+    // z-coordinate teleport
+    if(sscanf(buffer, "/portz %d", &z) == 1) {
+	s->z = z;
+/// master
     }
 
     /// Command to change the time of day to morning (dawn)
