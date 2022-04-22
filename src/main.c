@@ -233,7 +233,7 @@ void get_motion_vector(int flying, int sz, int sx, float rx, float ry,
         *vz = sinf(rx + strafe) * m;
     }
 
-    /// On Key hold, speed increase by 2 
+    /// On Key hold, speed increase by 2, works while flying too
     /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/26
     /// @param[in] CRAFT_KEY_SPRINT
     /// no precondition or postCondition I can think of
@@ -251,10 +251,23 @@ void get_motion_vector(int flying, int sz, int sx, float rx, float ry,
         /// Check if window is not closed
         assert(g->window != NULL);
     }
+
+    /// On Key hold, moving forward 
+    /// @param[in] CRAFT_KEY_FORWARD
+    /// no precondition or postCondition I can think of 
     else {
+
+        /// Preconditions for programming by contract
+        /// g->window needs to exist
+        assert(NULL != g->window);;
+
         *vx = cosf(rx + strafe);
         *vy = 0;
         *vz = sinf(rx + strafe);
+    
+        /// Check if window is not closed
+        assert(g->window != NULL);
+
     }
 }
 
