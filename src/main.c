@@ -2246,11 +2246,7 @@ void parse_command(const char *buffer, int forward) {
     if(sscanf(buffer, "/teleport_z %d", &z) == 1 | sscanf(buffer, "/portz %d", &z) == 1) {
 	s->z = z;
     }
-
-    else if (forward) {
-        client_talk(buffer);
-    }
-    
+	
     ///Command to change the time of day to morning (dawn)
     /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/17
     if (sscanf(buffer,"/dawn"))
@@ -2263,6 +2259,10 @@ void parse_command(const char *buffer, int forward) {
     if (sscanf(buffer,"/dusk"))
     {
     	
+    }
+
+    else if (forward) {
+        client_talk(buffer);
     }
 }
 
