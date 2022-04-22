@@ -1,4 +1,5 @@
 # This Is My CEG-4110 Spring 2020 Project
+
 **by Erik M. Buck**
 
 ## Craft
@@ -11,13 +12,13 @@ http://www.michaelfogleman.com/craft/
 
 ### Features
 
-* Simple but nice looking terrain generation using perlin / simplex noise.
-* More than 10 types of blocks and more can be added easily.
-* Supports plants (grass, flowers, trees, etc.) and transparency (glass).
-* Simple clouds in the sky (they don't move).
-* Day / night cycles and a textured sky dome.
-* World changes persisted in a sqlite3 database.
-* Multiplayer support!
+- Simple but nice looking terrain generation using perlin / simplex noise.
+- More than 10 types of blocks and more can be added easily.
+- Supports plants (grass, flowers, trees, etc.) and transparency (glass).
+- Simple clouds in the sky (they don't move).
+- Day / night cycles and a textured sky dome.
+- World changes persisted in a sqlite3 database.
+- Multiplayer support!
 
 ### Download
 
@@ -152,9 +153,11 @@ Teleport to the specified chunk.
     /spawn
 
 Teleport back to the spawn point.
+
 ```
 /random
 ```
+
 Gives you a random block.
 
 ### Block Commands
@@ -219,6 +222,27 @@ You can select a block through the command line. Just type in the number that co
 - 55- ruby
 - 56- gold
 
+### Adding Block Textures
+
+Adding block textures is a very simple process. It involves only a few steps:
+
+- Download textures/[texture.png](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/textures/texture.png) and add your block texture(s) to the grid
+- Replace the original [texture.png](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/textures/texture.png) file with your modified copy
+- Open src/[item.h](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/item.h) and define your block at the bottom of the list of definitions ex. `#define NEWBLOCK 64`
+- Open src/[item.c](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/item.c) and add your newly defined block to the array of blocks:
+  ```
+  const int items [] = {
+      OLDBLOCK,
+      NEWBLOCK
+  };
+  ```
+- In src/[item.c](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/item.c) add your new block to `const int blocks[256][6] = { }` list.
+
+This list defines which texture each block is given. It accepts 6 values (left, right, top, bottom, front, back). Each value is the location of a 16x16 pixel block on the [texture.png](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/textures/texture.png) image, starting from the bottom left corner at 0.
+
+**Example:**
+I want to define sand within the list. You can see that sand is on the bottom row of [texture.png](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/textures/texture.png), and one space in from the left. This means that sands texture map is (1, 1, 1, 1, 1, 1).
+
 ### Screenshot
 
 ![Screenshot](http://i.imgur.com/foYz3aN.png)
@@ -281,9 +305,9 @@ http://0fps.wordpress.com/2013/07/03/ambient-occlusion-for-minecraft-like-worlds
 
 #### Dependencies
 
-* GLEW is used for managing OpenGL extensions across platforms.
-* GLFW is used for cross-platform window management.
-* CURL is used for HTTPS / SSL POST for the authentication process.
-* lodepng is used for loading PNG textures.
-* sqlite3 is used for saving the blocks added / removed by the user.
-* tinycthread is used for cross-platform threading.
+- GLEW is used for managing OpenGL extensions across platforms.
+- GLFW is used for cross-platform window management.
+- CURL is used for HTTPS / SSL POST for the authentication process.
+- lodepng is used for loading PNG textures.
+- sqlite3 is used for saving the blocks added / removed by the user.
+- tinycthread is used for cross-platform threading.
