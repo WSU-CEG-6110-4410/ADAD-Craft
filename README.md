@@ -175,6 +175,14 @@ Teleport using the specified y-coordinate.
 /portz [Z]
 ```
 Teleport using the specified z-coordinate.
+```
+/dawn
+```
+Set the time of day to morning.
+```
+/dusk
+```
+Set the time of day to night.
 
 ### Block Commands
 
