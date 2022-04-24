@@ -24,6 +24,9 @@ add_subdirectory(deps/glfw)
 add_subdirectory(googletest) 
 include_directories(googletest/include) 
 
+# The guide says to use the following lines, but further testing is required
+# add_executable(main src/main.c) # add this executable
+# target_link_libraries(main PRIVATE gtest) # link google test to this executable
 
 include_directories(deps/glew/include)
 include_directories(deps/glfw/include)
