@@ -1859,8 +1859,8 @@ void add_message(const char *text) {
     g->message_index = (g->message_index + 1) % MAX_MESSAGES;
 }
 
-/**Function to Authenticate Login for user*/
-/** [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/61 */
+///Function to Authenticate Login for user
+/// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/61 
 
 void login() {
     char username[128] = {0};
