@@ -2684,7 +2684,8 @@ void parse_command(const char *buffer, int forward)
     if (sscanf(buffer, "/teleport_z %d", &z) == 1 | sscanf(buffer, "/portz %d", &z) == 1)
     {
         s->z = z;
-=======
+    }
+        
     if(sscanf(buffer, "/portx %d", &x) == 1) {
 	s->x = x;
     }
