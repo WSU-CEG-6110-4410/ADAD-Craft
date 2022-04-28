@@ -2922,13 +2922,13 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods)
         }
         /***********************************Pre-Condtion Programming by contract********/
         /// M Key has been binded to quit the game
-        ///Terminating of the window wihtout getting game saved on click on Key M*/
+        ///Terminating of the window without getting game saved on click on Key M*/
         /// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/71 */
         if (key == CRAFT_KEY_CLOSE_TERMINAL)
         {
             glfwTerminate();
         }
-        /***********************************Post Condtion for Programming by contract********/
+        /***********************************Post-Condtion Programming by contract********/
     }
 }
 
