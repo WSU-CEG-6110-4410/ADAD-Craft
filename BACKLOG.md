@@ -63,3 +63,15 @@ As a developer, I want clear definitions of minecraft units which are used in Ma
 Status: Completed Shawn Ruby. Sprint 2
 Pts 1 PO Priority 1: Task 001, Complete background research on minecraft units (blocks / chunk section / chunks)
 Pts 1 Task 002, Update src/main.c to include descriptions of these units to aid in world generation development.
+
+### User Story #2
+
+[Issue Link](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/2)
+As a player, I want to be able to double-jump so that I can scale two blocks in a single bound.
+
+Status: Completed Daniel King. Sprint 1
+
+Pts 1 Task 001, figure out which key is the jump key. Assigned Daniel King
+Pts 2 Task 002, figure out how the program processes inputs. Assigned Daniel King
+Pts 3 Task 003, figure out how the program causes the player to gain altitude in response to an input. Assigned Daniel King
+Pts 2 Task 004, remove limit on number of jumps allowed. Assigned Daniel King
