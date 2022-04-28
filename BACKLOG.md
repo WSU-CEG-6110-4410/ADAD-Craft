@@ -23,3 +23,22 @@ Pts 1 PO Priority 1: Task 001, Binding the M key to function. Assigned Fayazuddi
 Pts 3 Task 002, Update config.h defining the Key M . Assigned Fayazuddin Mohammed
 Pts 2 Task 003, Update src/main.c Assiging the functionality. Assigned Fayazuddin Mohammed
 Pts 2 Task 004, Update src/main.c making Doxygen comments,Literate Programming and Programming by Contract. Assigned Fayazuddin Mohammed
+
+### User Story #51
+[Issue Link](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/51)
+As a player, I want day and night to last longer so that it doesn't change from one to the other so quickly. #51
+
+Status: Completed Samantha Stetz
+Pts 3, PO Priority 1: Task 001, Complete background research on the day night cycle of minecraft, and which variables are involved in modifying that cycle.
+Pts 1, Task 002, Modify variables in config.h to increase the day/night length.
+
+### User Story #54
+[Issue Link](github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/54 )
+Implementation of increasing the zooming length so that I can see the clouds very close to me from the ground - Assigned Fayazuddin Mohammed
+
+Status: Completed Fayazuddin Mohammed. Sprint 2,3,4
+Pts 1 PO Priority 1: Task 001, CHanging the parameters in the function. Assigned Fayazuddin Mohammed
+Pts 3 Task 002, Doing the testing for the changes done . Assigned Fayazuddin Mohammed
+Pts 2 Task 003, Update src/main.c Assiging the functionality. Assigned Fayazuddin Mohammed
+Pts 3 Task 004, Update src/main.c making Doxygen comments,Literate Programming and Programming by Contract. Assigned Fayazuddin Mohammed 
+
