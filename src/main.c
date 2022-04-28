@@ -3119,7 +3119,7 @@ void handle_movement(double dt)
         /// Pre and post condition remains same as it is constanst value that has been assigned to zooming feature
         /****************Begining of Programming by contract***/
         g->fov = glfwGetKey(g->window, CRAFT_KEY_ZOOM) ? 15 : 105;
-        /*****************end of Programming by Contract****/
+        /****************End of Programming by contract***/
         /// Pre and post condition remains same as it is constanst value that has been assigned to zooming feature
         if (glfwGetKey(g->window, CRAFT_KEY_FORWARD))
             sz--;
