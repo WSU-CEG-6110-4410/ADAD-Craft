@@ -1,8 +1,11 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.14)
 
 project(craft)
 
 FILE(GLOB SOURCE_FILES src/*.c)
+
+# GoogleTest requires at least C++11
+set(CMAKE_CXX_STANDARD 11)
 
 add_executable(
     craft
@@ -17,16 +20,16 @@ add_definitions(-std=c99 -O3)
 
 add_subdirectory(deps/glfw)
 
-# add googletest to the project 
-# so we can use #include <gtest/gtest.h>
-# following [guide](https://stackoverflow.com/questions/62910867/how-to-run-tests-and-debug-google-test-project-in-vs-code)
-# to close issue [#92](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/92)
-add_subdirectory(googletest) 
-include_directories(googletest/include) 
+#Google test allows us to use a well established testing framework
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
+)
 
-# The guide says to use the following lines, but further testing is required
-# add_executable(main src/main.c) # add this executable
-# target_link_libraries(main PRIVATE gtest) # link google test to this executable
+# For Windows: Prevent overriding the parent project's compiler/linker settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
 
 include_directories(deps/glew/include)
 include_directories(deps/glfw/include)
