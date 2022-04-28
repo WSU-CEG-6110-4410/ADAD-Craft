@@ -868,6 +868,7 @@ int hit_test_face(Player *player, int *x, int *y, int *z, int *face)
     return 0;
 }
 
+/// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/109
 //! The collide function checks if the player is intersecting with a boundary and adjust the player's position accordingly
 int collide(int height, float *x, float *y, float *z)
 {
