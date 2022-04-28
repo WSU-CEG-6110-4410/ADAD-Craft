@@ -7,7 +7,6 @@ void make_cube_faces(
     int wleft, int wright, int wtop, int wbottom, int wfront, int wback,
     float x, float y, float z, float n);
 
-//! This is a test comment
 void make_cube(
     float *data, float ao[6][4], float light[6][4],
     int left, int right, int top, int bottom, int front, int back,

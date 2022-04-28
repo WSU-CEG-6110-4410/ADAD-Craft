@@ -32,7 +32,6 @@ typedef struct {
     int dz;
     unsigned int mask;
     unsigned int size;
-    //! This is a test doxygen comment
     MapEntry *data;
 } Map;
 
