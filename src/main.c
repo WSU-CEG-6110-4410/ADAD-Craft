@@ -917,7 +917,7 @@ int collide(int height, float *x, float *y, float *z)
     }
     return result;
 }
-
+//! This is a test doxygen comment
 int collide_no_clip(int height, float *x, float *y, float *z)
 {
     int result = 0;
