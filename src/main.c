@@ -2721,6 +2721,8 @@ void parse_command(const char *buffer, int forward)
     }
 }
 
+/// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/107
+//! The on_light() places or removes light at a location
 void on_light()
 {
     State *s = &g->players->state;
