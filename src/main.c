@@ -917,7 +917,9 @@ int collide(int height, float *x, float *y, float *z)
     }
     return result;
 }
-//! This is a test doxygen comment
+
+/// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/3
+//! collide_no_clip checks for collision on all axes except y. It is used to implement the ability to walk through walls
 int collide_no_clip(int height, float *x, float *y, float *z)
 {
     int result = 0;
