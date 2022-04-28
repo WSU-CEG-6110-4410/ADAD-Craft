@@ -3114,7 +3114,11 @@ void handle_movement(double dt)
         g->ortho = glfwGetKey(g->window, CRAFT_KEY_ORTHO) ? 64 : 0;
         /// Zoom parameter values have been changed to view the clouds from the ground very closely
         /// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/54 
+        /// Pre and post condition remains same as it is constanst value that has been assigned to zooming feature
+        /****************Begining of Programming by contract***/
         g->fov = glfwGetKey(g->window, CRAFT_KEY_ZOOM) ? 15 : 105;
+        /*****************end of Programming by Contract****/
+        /// Pre and post condition remains same as it is constanst value that has been assigned to zooming feature
         if (glfwGetKey(g->window, CRAFT_KEY_FORWARD))
             sz--;
         if (glfwGetKey(g->window, CRAFT_KEY_BACKWARD))
