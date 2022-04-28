@@ -2911,7 +2911,6 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods)
         {
             g->observe2 = (g->observe2 + 1) % g->player_count;
         }
-
         /// If 'Q' is pressed, the game quits by satisfying the leave
         /// conditions of both the inner and outer loops of the main
         /// function.
@@ -2921,12 +2920,15 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods)
             playing = 0;
             running = 0;
         }
-        /**Terminating of the window wihtout getting game saved on click on Key M*/
-        /** [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/71 */
+        /***********************************Pre-Condtion Programming by contract********/
+        /// M Key has been bound to quit the game
+        ///Terminating of the window without getting game saved on click on Key M*/
+        /// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/71 */
         if (key == CRAFT_KEY_CLOSE_TERMINAL)
         {
             glfwTerminate();
         }
+        /***********************************Post-Condtion Programming by contract********/
     }
 }
 
@@ -3117,7 +3119,7 @@ void handle_movement(double dt)
         /// Pre and post condition remains same as it is constanst value that has been assigned to zooming feature
         /****************Begining of Programming by contract***/
         g->fov = glfwGetKey(g->window, CRAFT_KEY_ZOOM) ? 15 : 105;
-        /*****************end of Programming by Contract****/
+        /****************End of Programming by contract***/
         /// Pre and post condition remains same as it is constanst value that has been assigned to zooming feature
         if (glfwGetKey(g->window, CRAFT_KEY_FORWARD))
             sz--;
