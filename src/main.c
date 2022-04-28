@@ -2921,7 +2921,7 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods)
             running = 0;
         }
         /***********************************Pre-Condtion Programming by contract********/
-        /// M Key has been binded to quit the game
+        /// M Key has been bound to quit the game
         ///Terminating of the window without getting game saved on click on Key M*/
         /// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/71 */
         if (key == CRAFT_KEY_CLOSE_TERMINAL)
