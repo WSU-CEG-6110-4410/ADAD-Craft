@@ -918,6 +918,8 @@ int collide(int height, float *x, float *y, float *z)
     return result;
 }
 
+/// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/3
+//! collide_no_clip checks for collision on all axes except y. It is used to implement the ability to walk through walls
 int collide_no_clip(int height, float *x, float *y, float *z)
 {
     int result = 0;
@@ -2719,6 +2721,8 @@ void parse_command(const char *buffer, int forward)
     }
 }
 
+/// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/107
+//! The on_light() places or removes light at a location
 void on_light()
 {
     State *s = &g->players->state;
