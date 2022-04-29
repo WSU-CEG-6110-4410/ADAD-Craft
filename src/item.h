@@ -63,6 +63,7 @@
 #define RUBY 65
 #define GOLD 66
 #define BIRCH_WOOD 67
+#define BLACK_STONE 68
 
 extern const int items[];
 extern const int item_count;
