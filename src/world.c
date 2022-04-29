@@ -1,6 +1,7 @@
 #include "config.h"
 #include "noise.h"
 #include "world.h"
+#include "item.h"
 
 void create_world(int p, int q, world_func func, void *arg) {
     int pad = 1;
@@ -30,12 +31,19 @@ void create_world(int p, int q, world_func func, void *arg) {
                 if (SHOW_PLANTS) {
                     // grass
                     if (simplex2(-x * 0.1, z * 0.1, 4, 0.8, 2) > 0.6) {
-                        func(x, h, z, 17 * flag, arg);
+                        func(x, h, z, TALL_GRASS * flag, arg);
                     }
-                    // flowers
+
+                    // flowers & saplings
+                    //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/121
+                    //! Determine whether or not the block at (x,z) should contain foliage, and if so, determine the type
+                    //! A noise function is used to determine if the block should contain foliage
+                    //! Then, we assume the foliage type will be "YELLOW_FLOWER" aka the first foliage type present.
+                    //! Using a noise function, we create an offset by multiplying the result with the total number of foliage types + 1 (included in the count)
+                    //! Then we set the block to be that specific foliage type
                     if (simplex2(x * 0.05, -z * 0.05, 4, 0.8, 2) > 0.7) {
-                        int w = 18 + simplex2(x * 0.1, z * 0.1, 4, 0.8, 2) * 7;
-                        func(x, h, z, w * flag, arg);
+                        int foliageType = YELLOW_FLOWER + simplex2(x * 0.1, z * 0.1, 4, 0.8, 2) * FOLIAGE_COUNT;
+                        func(x, h, z, foliageType * flag, arg);
                     }
                 }
                 // trees
