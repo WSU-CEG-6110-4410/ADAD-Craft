@@ -246,6 +246,8 @@ You can select a block through the command line. Just type in the number that co
 - 55- ruby
 - 56- gold
 - 57- oak sapling
+- 58- birch sapling
+- 59- birch wood
 
 ### Adding Block Textures
 
