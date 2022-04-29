@@ -245,6 +245,7 @@ You can select a block through the command line. Just type in the number that co
 - 54- diamond
 - 55- ruby
 - 56- gold
+- 57- oak sapling
 
 ### Adding Block Textures
 
@@ -266,6 +267,29 @@ This list defines which texture each block is given. It accepts 6 values (left, 
 
 **Example:**
 I want to define sand within the list. You can see that sand is on the bottom row of [texture.png](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/textures/texture.png), and one space in from the left. This means that sands texture map is (1, 1, 1, 1, 1, 1).
+
+### Adding Plant Textures
+
+Adding plant textures involves basically the same steps listed above: 
+
+- Download textures/[texture.png](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/textures/texture.png) and add your plant texture(s) to the grid
+- Replace the original [texture.png](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/textures/texture.png) file with your modified copy
+- Open src/[item.h](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/item.h) and define your plant at the bottom of the list of definitions ex. `#define NEWPLANT 64`
+- Open src/[item.c](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/item.c) and add your newly defined plant to the array of plants:
+  ```
+  const int items [] = {
+      OLDPLANT,
+      NEWPLANT
+  };
+  ```
+- In src/[item.c](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/item.c) add your new block to `const int plants[256] = { }` list.
+
+This list defines which texture each plant is given. It accepts 1 value which represents the texture's location in the grid. 
+
+**Example**
+If I want to define tall-grass within the list, the texture is located in the first position of the fourth row. 
+The bottom left (grass block bottom) of textures.png is position 0, as you move right along the row the position increases by 1. When you reach the end of the row, you start on the left-most position of the row above and increase the account accordingly. 
+Following this pattern, the grass block is located in position #48
 
 ### Screenshot
 
