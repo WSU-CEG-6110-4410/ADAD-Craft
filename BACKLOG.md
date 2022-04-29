@@ -119,3 +119,14 @@ Status: Completed Samantha Stetz Sprint 2
 Pts 1 PO Priority 1: Task 069, Included an if statement in main.c to teleport with three coordinates using the command line. Assigned Samantha Stetz
 Pts 1 Task 074, Included three if statements in main.c to teleport with only one coordinate using the command line. Assigned Samantha Stetz
 Pts 1 Task 070, Added information about the teleport commands to README.md. Assigned Samantha Stetz
+
+### User Story #131
+
+[Issue Link](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/131)
+As a developer, I want doxygen pages that organize all of our projects comments and classes into one convenient location. Shawn Ruby #131
+
+Status: Completed Shawn Ruby. Sprint 3
+Pts 1 PO Priority 1: Task 001, Background research on doxygen document generation. Assigned Shawn Ruby
+Pts 2 Task 002: Clone doxygen repo and install it on local machine. Assigned Shawn Ruby
+Pts 1 Task 003: Generate doxygen dconfig file and update it with project information. Assigned Shawn Ruby
+Pts 1 Task 004: Build doxygen website based off of dconfig file. Assigned Shawn Ruby
