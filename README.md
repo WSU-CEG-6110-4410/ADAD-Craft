@@ -311,3 +311,7 @@ http://0fps.wordpress.com/2013/07/03/ambient-occlusion-for-minecraft-like-worlds
 - lodepng is used for loading PNG textures.
 - sqlite3 is used for saving the blocks added / removed by the user.
 - tinycthread is used for cross-platform threading.
+
+#### Documentation
+
+Documentation has been completed through the use of [Doxygen](https://www.doxygen.nl/manual/install.html). The configuration file is located at [ADAD-Craft/dconfig](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/dconfig).
