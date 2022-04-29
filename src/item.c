@@ -148,8 +148,8 @@ const int blocks[256][6] = {
     {144, 144, 144, 144, 144, 144}, // Diamond texture
     {145, 145, 145, 145, 145, 145}, // Ruby texture
     {146, 146, 146, 146, 146, 146}, // Gold texture
-    {148, 148, 148, 148, 148, 148}, // Black Stone texture
     {163, 163, 147, 147, 163, 163}, // Birch log texture
+    {148, 148, 148, 148, 148, 148}, // Black Stone texture
 };
 
 //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/118
