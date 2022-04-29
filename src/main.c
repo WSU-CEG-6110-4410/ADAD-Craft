@@ -3367,6 +3367,26 @@ int main(int argc, char **argv)
     TEST_ASSERT(is_destructable(0) == 0);
     TEST_ASSERT(is_obstacle(17) == 0);
 
+    //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/146
+    // Saplings
+    TEST_ASSERT(is_plant(24) == 1);
+    TEST_ASSERT(is_plant(25) == 1);
+    TEST_ASSERT(is_obstacle(24) == 0);
+    TEST_ASSERT(is_obstacle(25) == 0);
+    TEST_ASSERT(is_destructable(24) == 1);
+    TEST_ASSERT(is_destructable(25) == 1);
+    TEST_ASSERT(is_transparent(24) == 1);
+    TEST_ASSERT(is_transparent(25) == 1);
+    // Wood
+    TEST_ASSERT(is_plant(5) == 0);
+    TEST_ASSERT(is_plant(67) == 0);
+    TEST_ASSERT(is_obstacle(5) == 1);
+    TEST_ASSERT(is_obstacle(67) == 1);
+    TEST_ASSERT(is_destructable(5) == 1);
+    TEST_ASSERT(is_destructable(67) == 1);
+    TEST_ASSERT(is_transparent(5) == 0);
+    TEST_ASSERT(is_transparent(67) == 0);
+
     // INITIALIZATION //
     curl_global_init(CURL_GLOBAL_DEFAULT);
     srand(time(NULL));
