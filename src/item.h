@@ -64,6 +64,14 @@
 #define GOLD 66
 #define BIRCH_WOOD 67
 
+//! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/121
+//! The total number of flowers & saplings (+ 1), used during generation of the map (excludes tall grass)
+#define FOLIAGE_COUNT 9
+
+//! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/121
+//! The total number of tree types 
+#define TREE_TYPES 2
+
 extern const int items[];
 extern const int item_count;
 extern const int blocks[256][6];

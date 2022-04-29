@@ -1,7 +1,11 @@
 #include "config.h"
 #include "noise.h"
 #include "world.h"
+#include "item.h"
+#include <stdlib.h>
 
+
+//! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/121
 void create_world(int p, int q, world_func func, void *arg) {
     int pad = 1;
     for (int dx = -pad; dx < CHUNK_SIZE + pad; dx++) {
@@ -28,14 +32,19 @@ void create_world(int p, int q, world_func func, void *arg) {
             }
             if (w == 1) {
                 if (SHOW_PLANTS) {
-                    // grass
+                    // GRASS GENERATION
                     if (simplex2(-x * 0.1, z * 0.1, 4, 0.8, 2) > 0.6) {
-                        func(x, h, z, 17 * flag, arg);
+                        func(x, h, z, TALL_GRASS * flag, arg);
                     }
-                    // flowers
+
+                    // FOLIAGE GENERATION
+                    //  - Determine whether or not the block at (x,z) should contain foliage, and if so, determine the type
+                    //  - A noise function is used to determine if the block should contain foliage
+                    //  - Then, we assume the foliage type will be "YELLOW_FLOWER" aka the first foliage type present.
+                    //  - Using a noise function, we create an offset by multiplying the result with the total number of foliage types
                     if (simplex2(x * 0.05, -z * 0.05, 4, 0.8, 2) > 0.7) {
-                        int w = 18 + simplex2(x * 0.1, z * 0.1, 4, 0.8, 2) * 7;
-                        func(x, h, z, w * flag, arg);
+                        int foliageType = YELLOW_FLOWER + simplex2(x * 0.1, z * 0.1, 4, 0.8, 2) * FOLIAGE_COUNT;
+                        func(x, h, z, foliageType * flag, arg);
                     }
                 }
                 // trees
@@ -45,6 +54,9 @@ void create_world(int p, int q, world_func func, void *arg) {
                 {
                     ok = 0;
                 }
+
+                // TREE GENERATION
+                // - Generate leaves
                 if (ok && simplex2(x, z, 6, 0.5, 2) > 0.84) {
                     for (int y = h + 3; y < h + 8; y++) {
                         for (int ox = -3; ox <= 3; ox++) {
@@ -57,9 +69,23 @@ void create_world(int p, int q, world_func func, void *arg) {
                             }
                         }
                     }
-                    for (int y = h; y < h + 7; y++) {
-                        func(x, y, z, 5, arg);
+
+                    // - Generate trunk
+                    // - To add future types of trees, I recommend moving around the block IDs so that they fall directly in a range (like 5-7 for 3 tree types)
+                    // - Doing so would allow you to refactor the code into a single for loop where you set "tree_type" to be what block is generated
+                    int tree_type = (rand() % (TREE_TYPES)) + 1; 
+
+                    if (tree_type == 1) {
+                      for (int y = h; y < h + 7; y++) {
+                        func(x, y, z, WOOD, arg);
+                      }
                     }
+                    else {
+                      for (int y = h; y < h + 7; y++) {
+                        func(x, y, z, BIRCH_WOOD, arg);
+                      }
+                    }
+
                 }
             }
             // clouds
