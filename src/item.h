@@ -63,6 +63,7 @@
 #define RUBY 65
 #define GOLD 66
 #define BIRCH_WOOD 67
+#define BLACK_STONE 68
 
 //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/121
 //! The total number of flowers & saplings (+ 1), used during generation of the map (excludes tall grass)

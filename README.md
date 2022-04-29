@@ -210,44 +210,45 @@ You can select a block through the command line. Just type in the number that co
 - 19- sunflower
 - 20- white flower
 - 21- blue flower
-- 22- yellow block
-- 23- light green block
-- 24- green block
-- 25- teal block
-- 26- dark green block
-- 27- brown-green block
-- 28- dark gray block
-- 29- indigo block
-- 30- light gray block
-- 31- gray block
-- 32- purple block
-- 33- red block
-- 34- light red block
-- 35- pink block
-- 36- very light green block
-- 37- brown-yellow block
-- 38- black block
-- 39- very dark blue block
-- 40- dark purple block
-- 41- dusty red block
-- 42- brown block
-- 43- orange block
-- 44- tan block
-- 45- cream block
-- 46- dark blue block
-- 47- blue block
-- 48- light blue block
-- 49- turquoise block
-- 50- powder blue block
-- 51- white block
-- 52- blue-gray block
-- 53- purple-gray block
-- 54- diamond
-- 55- ruby
-- 56- gold
-- 57- oak sapling
-- 58- birch sapling
+- 22- oak sapling
+- 23- birch sapling
+- 24- yellow block
+- 25- light green block
+- 26- green block
+- 27- teal block
+- 28- dark green block
+- 29- brown-green block
+- 30- dark gray block
+- 31- indigo block
+- 32- light gray block
+- 33- gray block
+- 34- purple block
+- 35- red block
+- 36- light red block
+- 37- pink block
+- 38- very light green block
+- 39- brown-yellow block
+- 40- black block
+- 41- very dark blue block
+- 42- dark purple block
+- 43- dusty red block
+- 44- brown block
+- 45- orange block
+- 46- tan block
+- 47- cream block
+- 48- dark blue block
+- 49- blue block
+- 50- light blue block
+- 51- turquoise block
+- 52- powder blue block
+- 53- white block
+- 54- blue-gray block
+- 55- purple-gray block
+- 56- diamond
+- 57- ruby
+- 58- gold
 - 59- birch wood
+- 60- black stone
 
 ### Adding Block Textures
 
@@ -361,3 +362,31 @@ http://0fps.wordpress.com/2013/07/03/ambient-occlusion-for-minecraft-like-worlds
 - lodepng is used for loading PNG textures.
 - sqlite3 is used for saving the blocks added / removed by the user.
 - tinycthread is used for cross-platform threading.
+
+#### Documentation
+
+Documentation has been completed through the use of [Doxygen](https://www.doxygen.nl/manual/install.html). The configuration file is located at [ADAD-Craft/dconfig](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/dconfig).
+
+To update the configuration file:
+
+- Make changes to config file at [ADAD-Craft/dconfig](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/dconfig)
+- Open your terminal on a machine with doxygen installed and change directories to your project repository
+- Use the command: `doxygen dconfig`
+
+That command will recompile the doxygen website based on the new settings in your dconfig file. You can also use `doxygen -g config_file_name` to create a fresh config file to work out of for your project.
+
+### Testing
+
+Testing has been completed with the [Unity](https://github.com/ThrowTheSwitch/Unity) testing library for C. The Unity library features a variety of tests for C programming, most of which are described on their GitHub repository linked above. A few of the tests that you can find within our program are:
+
+- `TEST_ASSERT_TRUE(condition)` (fails if the code within the condition evaluates to false)
+- `TEST_ASSERT_FALSE(condition)` (fails if the code within the condition evaluates to true)
+- `TEST_ASSERT(condition)` (a simpler way of calling TEST_ASSET_TRUE)
+
+Files related to unity testing can be found within [ADAD-Craft/src](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/tree/master/src). These files include:
+
+- [unity.c](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/unity.c)
+- [unity.h](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/unity.h)
+- [unity_internals.h](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/unity_internals.h)
+
+If you have any other concerns about Unity's testing framework, then here is a link to their [getting started guide](https://github.com/ThrowTheSwitch/Unity/blob/master/docs/UnityGettingStartedGuide.md).
