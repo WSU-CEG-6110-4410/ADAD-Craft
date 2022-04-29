@@ -21,6 +21,7 @@
 #include "util.h"
 #include "world.h"
 #include "assert.h"
+#include "unity.h"
 
 /*!
     Minecraft units:
@@ -180,6 +181,9 @@ static Model *g = &model;
 /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30
 int playing = 1; /// correlates to inner main loop
 int running = 1; /// correlates to outer main loop
+
+void setUp(void) {}
+void tearDown(void) {}
 
 int chunked(float x)
 {
@@ -868,6 +872,8 @@ int hit_test_face(Player *player, int *x, int *y, int *z, int *face)
     return 0;
 }
 
+/// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/109
+//! The collide function checks if the player is intersecting with a boundary and adjust the player's position accordingly
 int collide(int height, float *x, float *y, float *z)
 {
     int result = 0;
@@ -3339,7 +3345,28 @@ void reset_model()
 }
 
 int main(int argc, char **argv)
-{
+{// INITIALIZATION //
+
+    //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/125
+    // lines 3351-3358 broken, will revisit later, commenting out for now.
+    // float* test_x;
+    // float* test_y;
+    // float* test_z;
+    // *test_x = 1;
+    // *test_y = 1;
+    // *test_z = 1;
+    // TEST_ASSERT(collide_no_clip(1, test_x, test_y, test_z));
+
+    //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/125
+    TEST_ASSERT(is_plant(17) == 1);
+    TEST_ASSERT(chunked(32) == 1);
+    TEST_ASSERT(time_of_day() != -1);
+    TEST_ASSERT(get_daylight() != -1);
+    TEST_ASSERT(get_block(32, 32, 1) == 0);
+    TEST_ASSERT(is_transparent(17) == 1);
+    TEST_ASSERT(is_destructable(0) == 0);
+    TEST_ASSERT(is_obstacle(17) == 0);
+
     // INITIALIZATION //
     curl_global_init(CURL_GLOBAL_DEFAULT);
     srand(time(NULL));

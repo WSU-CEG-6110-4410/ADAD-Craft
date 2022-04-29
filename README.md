@@ -245,6 +245,9 @@ You can select a block through the command line. Just type in the number that co
 - 54- diamond
 - 55- ruby
 - 56- gold
+- 57- oak sapling
+- 58- birch sapling
+- 59- birch wood
 
 ### Adding Block Textures
 
@@ -266,6 +269,29 @@ This list defines which texture each block is given. It accepts 6 values (left, 
 
 **Example:**
 I want to define sand within the list. You can see that sand is on the bottom row of [texture.png](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/textures/texture.png), and one space in from the left. This means that sands texture map is (1, 1, 1, 1, 1, 1).
+
+### Adding Plant Textures
+
+Adding plant textures involves basically the same steps listed above: 
+
+- Download textures/[texture.png](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/textures/texture.png) and add your plant texture(s) to the grid
+- Replace the original [texture.png](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/textures/texture.png) file with your modified copy
+- Open src/[item.h](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/item.h) and define your plant at the bottom of the list of definitions ex. `#define NEWPLANT 64`
+- Open src/[item.c](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/item.c) and add your newly defined plant to the array of plants:
+  ```
+  const int items [] = {
+      OLDPLANT,
+      NEWPLANT
+  };
+  ```
+- In src/[item.c](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/item.c) add your new block to `const int plants[256] = { }` list.
+
+This list defines which texture each plant is given. It accepts 1 value which represents the texture's location in the grid. 
+
+**Example**
+If I want to define tall-grass within the list, the texture is located in the first position of the fourth row. 
+The bottom left (grass block bottom) of textures.png is position 0, as you move right along the row the position increases by 1. When you reach the end of the row, you start on the left-most position of the row above and increase the account accordingly. 
+Following this pattern, the grass block is located in position #48
 
 ### Screenshot
 
@@ -335,3 +361,31 @@ http://0fps.wordpress.com/2013/07/03/ambient-occlusion-for-minecraft-like-worlds
 - lodepng is used for loading PNG textures.
 - sqlite3 is used for saving the blocks added / removed by the user.
 - tinycthread is used for cross-platform threading.
+
+#### Documentation
+
+Documentation has been completed through the use of [Doxygen](https://www.doxygen.nl/manual/install.html). The configuration file is located at [ADAD-Craft/dconfig](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/dconfig).
+
+To update the configuration file:
+
+- Make changes to config file at [ADAD-Craft/dconfig](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/dconfig)
+- Open your terminal on a machine with doxygen installed and change directories to your project repository
+- Use the command: `doxygen dconfig`
+
+That command will recompile the doxygen website based on the new settings in your dconfig file. You can also use `doxygen -g config_file_name` to create a fresh config file to work out of for your project.
+
+### Testing
+
+Testing has been completed with the [Unity](https://github.com/ThrowTheSwitch/Unity) testing library for C. The Unity library features a variety of tests for C programming, most of which are described on their GitHub repository linked above. A few of the tests that you can find within our program are:
+
+- `TEST_ASSERT_TRUE(condition)` (fails if the code within the condition evaluates to false)
+- `TEST_ASSERT_FALSE(condition)` (fails if the code within the condition evaluates to true)
+- `TEST_ASSERT(condition)` (a simpler way of calling TEST_ASSET_TRUE)
+
+Files related to unity testing can be found within [ADAD-Craft/src](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/tree/master/src). These files include:
+
+- [unity.c](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/unity.c)
+- [unity.h](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/unity.h)
+- [unity_internals.h](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/unity_internals.h)
+
+If you have any other concerns about Unity's testing framework, then here is a link to their [getting started guide](https://github.com/ThrowTheSwitch/Unity/blob/master/docs/UnityGettingStartedGuide.md).
