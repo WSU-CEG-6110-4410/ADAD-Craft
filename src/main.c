@@ -21,6 +21,7 @@
 #include "util.h"
 #include "world.h"
 #include "assert.h"
+#include "unity.h"
 
 /*!
     Minecraft units:
@@ -180,6 +181,9 @@ static Model *g = &model;
 /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30
 int playing = 1; /// correlates to inner main loop
 int running = 1; /// correlates to outer main loop
+
+void setUp(void) {}
+void tearDown(void) {}
 
 int chunked(float x)
 {
@@ -3342,6 +3346,7 @@ void reset_model()
 
 int main(int argc, char **argv)
 {
+    TEST_ASSERT(is_plant(17) == 1);
     // INITIALIZATION //
     curl_global_init(CURL_GLOBAL_DEFAULT);
     srand(time(NULL));
