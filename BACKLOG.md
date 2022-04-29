@@ -75,3 +75,47 @@ Pts 1 Task 001, figure out which key is the jump key. Assigned Daniel King
 Pts 2 Task 002, figure out how the program processes inputs. Assigned Daniel King
 Pts 3 Task 003, figure out how the program causes the player to gain altitude in response to an input. Assigned Daniel King
 Pts 2 Task 004, remove limit on number of jumps allowed. Assigned Daniel King
+
+### User Story 11
+
+[Issue Link](github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/11)
+As a player, I want the clouds to move so that I can feel more immersed in the game.
+
+Status: To-Do Samantha Stetz Sprint 1, 2
+
+### User Story 12
+
+[Issue Link](github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/12)
+As a player, I want an interactive list of all blocks so that I can choose a block without having to cycle through the whole list.
+
+Status: In Progress Samantha Stetz Sprint 1, 2
+Pts 1 PO Priority 1: Task 040, Included an if statement in main.c to allow a player to select a block using the command line. Assigned Samantha Stetz
+Pts 2 Task 048, Added block guide to README.md file for choosing a block from the command line. Assigned Samantha Stetz
+
+### User Story #28
+
+[Issue Link](github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/28)
+As a player, I want a quit button so that I can quit the game easily.
+
+Status: Completed Samantha Stetz Sprint 1
+Pts 1 PO Priority 1: Task 029, Added 'Q' as a key binding in config.h. Assigned Samantha Stetz
+Pts 1 Task 030, Included an if statement in main.c to save and quit the game if Q is pressed. Assigned Samantha Stetz
+
+### User Story #64
+
+[Issue Link](github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/64)
+As a player, I want to have a way to randomly select a block so that I can have more fun in the game.
+
+Status: Completed Samantha Stetz Sprint 2
+Pts 1 PO Priority 1: Task 065, Included if statement in main.c to randomly select a block if /random is typed. Assigned Samantha Stetz
+Pts 1 Task 066, Added information about random command to README.md. Assigned Samantha Stetz
+
+### User Story #68
+
+[Issue Link](github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/68)
+As a player, I want to be able to teleport to wherever I want to on the map so that travel is easier.
+
+Status: Completed Samantha Stetz Sprint 2
+Pts 1 PO Priority 1: Task 069, Included an if statement in main.c to teleport with three coordinates using the command line. Assigned Samantha Stetz
+Pts 1 Task 074, Included three if statements in main.c to teleport with only one coordinate using the command line. Assigned Samantha Stetz
+Pts 1 Task 070, Added information about the teleport commands to README.md. Assigned Samantha Stetz
