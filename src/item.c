@@ -27,6 +27,7 @@ const int items[] = {
     SUN_FLOWER,
     WHITE_FLOWER,
     BLUE_FLOWER,
+    OAK_SAPLING,
     COLOR_00,
     COLOR_01,
     COLOR_02,
@@ -149,6 +150,7 @@ const int plants[256] = {
     52,                                                // 21 - sun flower
     53,                                                // 22 - white flower
     54,                                                // 23 - blue flower
+    55,                                                // 24 - oak sapling
 };
 
 int is_plant(int w)
@@ -162,6 +164,7 @@ int is_plant(int w)
     case SUN_FLOWER:
     case WHITE_FLOWER:
     case BLUE_FLOWER:
+    case OAK_SAPLING:
         return 1;
     default:
         return 0;
