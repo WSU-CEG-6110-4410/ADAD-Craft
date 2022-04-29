@@ -3345,8 +3345,48 @@ void reset_model()
 }
 
 int main(int argc, char **argv)
-{
+{// INITIALIZATION //
+
+    //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/125
+    // lines 3351-3358 broken, will revisit later, commenting out for now.
+    // float* test_x;
+    // float* test_y;
+    // float* test_z;
+    // *test_x = 1;
+    // *test_y = 1;
+    // *test_z = 1;
+    // TEST_ASSERT(collide_no_clip(1, test_x, test_y, test_z));
+
+    //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/125
     TEST_ASSERT(is_plant(17) == 1);
+    TEST_ASSERT(chunked(32) == 1);
+    TEST_ASSERT(time_of_day() != -1);
+    TEST_ASSERT(get_daylight() != -1);
+    TEST_ASSERT(get_block(32, 32, 1) == 0);
+    TEST_ASSERT(is_transparent(17) == 1);
+    TEST_ASSERT(is_destructable(0) == 0);
+    TEST_ASSERT(is_obstacle(17) == 0);
+
+    //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/146
+    // Saplings
+    TEST_ASSERT(is_plant(24) == 1);
+    TEST_ASSERT(is_plant(25) == 1);
+    TEST_ASSERT(is_obstacle(24) == 0);
+    TEST_ASSERT(is_obstacle(25) == 0);
+    TEST_ASSERT(is_destructable(24) == 1);
+    TEST_ASSERT(is_destructable(25) == 1);
+    TEST_ASSERT(is_transparent(24) == 1);
+    TEST_ASSERT(is_transparent(25) == 1);
+    // Wood
+    TEST_ASSERT(is_plant(5) == 0);
+    TEST_ASSERT(is_plant(67) == 0);
+    TEST_ASSERT(is_obstacle(5) == 1);
+    TEST_ASSERT(is_obstacle(67) == 1);
+    TEST_ASSERT(is_destructable(5) == 1);
+    TEST_ASSERT(is_destructable(67) == 1);
+    TEST_ASSERT(is_transparent(5) == 0);
+    TEST_ASSERT(is_transparent(67) == 0);
+
     // INITIALIZATION //
     curl_global_init(CURL_GLOBAL_DEFAULT);
     srand(time(NULL));
