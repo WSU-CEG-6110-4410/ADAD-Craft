@@ -323,3 +323,13 @@ To update the configuration file:
 - Use the command: `doxygen dconfig`
 
 That command will recompile the doxygen website based on the new settings in your dconfig file. You can also use `doxygen -g config_file_name` to create a fresh config file to work out of for your project.
+
+### Testing
+
+Testing has been completed with the [Unity](https://github.com/ThrowTheSwitch/Unity) testing library for C. The Unity library features a variety of tests for C programming, most of which are described on their GitHub repository linked above. A few of the tests that you can find within our program are:
+
+- `TEST_ASSERT_TRUE(condition)` (fails if the code within the condition evaluates to false)
+- `TEST_ASSERT_FALSE(condition)` (fails if the code within the condition evaluates to true)
+- `TEST_ASSERT(condition)` (a simpler way of calling TEST_ASSET_TRUE)
+
+If you have any other concerns about Unity's testing framework, then here is a link to their [getting started guide](https://github.com/ThrowTheSwitch/Unity/blob/master/docs/UnityGettingStartedGuide.md).
