@@ -1,0 +1,234 @@
+{\bfseries{by Erik M. Buck}}\hypertarget{md_README_autotoc_md14}{}\doxysection{Craft}\label{md_README_autotoc_md14}
+Minecraft clone for Windows, Mac OS X and Linux. Just a few thousand lines of C using modern Open\+GL (shaders). Online multiplayer support is included using a Python-\/based server.
+
+\href{http://www.michaelfogleman.com/craft/}{\texttt{ http\+://www.\+michaelfogleman.\+com/craft/}}
+
+\hypertarget{md_README_autotoc_md15}{}\doxysubsection{Features}\label{md_README_autotoc_md15}
+
+\begin{DoxyItemize}
+\item Simple but nice looking terrain generation using perlin / simplex noise.
+\item More than 10 types of blocks and more can be added easily.
+\item Supports plants (grass, flowers, trees, etc.) and transparency (glass).
+\item Simple clouds in the sky (they don\textquotesingle{}t move).
+\item Day / night cycles and a textured sky dome.
+\item World changes persisted in a sqlite3 database.
+\item Multiplayer support!
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md16}{}\doxysubsection{Download}\label{md_README_autotoc_md16}
+Mac and Windows binaries are available on the website.
+
+\href{http://www.michaelfogleman.com/craft/}{\texttt{ http\+://www.\+michaelfogleman.\+com/craft/}}
+
+See below to run from source.\hypertarget{md_README_autotoc_md17}{}\doxysubsection{Install Dependencies}\label{md_README_autotoc_md17}
+\hypertarget{md_README_autotoc_md18}{}\doxysubsubsection{Mac OS X}\label{md_README_autotoc_md18}
+Download and install \href{http://www.cmake.org/cmake/resources/software.html}{\texttt{ CMake}} if you don\textquotesingle{}t already have it. You may use \href{http://brew.sh}{\texttt{ Homebrew}} to simplify the installation\+: \begin{DoxyVerb}brew install cmake
+\end{DoxyVerb}
+ \hypertarget{md_README_autotoc_md19}{}\doxysubsubsection{Linux (\+Ubuntu)}\label{md_README_autotoc_md19}
+\begin{DoxyVerb}sudo apt-get install cmake libglew-dev xorg-dev libcurl4-openssl-dev
+sudo apt-get build-dep glfw
+\end{DoxyVerb}
+ \hypertarget{md_README_autotoc_md20}{}\doxysubsubsection{Windows}\label{md_README_autotoc_md20}
+Download and install \href{http://www.cmake.org/cmake/resources/software.html}{\texttt{ CMake}} and \href{http://www.mingw.org/}{\texttt{ Min\+GW}}. Add {\ttfamily C\+:\textbackslash{}Min\+GW\textbackslash{}bin} to your {\ttfamily PATH}.
+
+Download and install \href{http://curl.haxx.se/download.html}{\texttt{ c\+URL}} so that CURL/lib and CURL/include are in your Program Files directory.
+
+Use the following commands in place of the ones described in the next section. \begin{DoxyVerb}cmake -G "MinGW Makefiles"
+mingw32-make
+\end{DoxyVerb}
+ \hypertarget{md_README_autotoc_md21}{}\doxysubsection{Compile and Run}\label{md_README_autotoc_md21}
+Once you have the dependencies (see above), run the following commands in your terminal. \begin{DoxyVerb}git clone https://github.com/fogleman/Craft.git
+cd Craft
+cmake .
+make
+./craft
+\end{DoxyVerb}
+ \hypertarget{md_README_autotoc_md22}{}\doxysubsection{Multiplayer}\label{md_README_autotoc_md22}
+Register for an account!
+
+\href{https://craft.michaelfogleman.com/}{\texttt{ https\+://craft.\+michaelfogleman.\+com/}}\hypertarget{md_README_autotoc_md23}{}\doxysubsubsection{Client}\label{md_README_autotoc_md23}
+You can connect to a server with command line arguments... \begin{DoxyVerb}./craft craft.michaelfogleman.com
+\end{DoxyVerb}
+ Or, with the \char`\"{}/online\char`\"{} command in the game itself. \begin{DoxyVerb}/online craft.michaelfogleman.com
+\end{DoxyVerb}
+ \hypertarget{md_README_autotoc_md24}{}\doxysubsubsection{Server}\label{md_README_autotoc_md24}
+You can run your own server or connect to mine. The server is written in Python but requires a compiled DLL so it can perform the terrain generation just like the client. \begin{DoxyVerb}gcc -std=c99 -O3 -fPIC -shared -o world -I src -I deps/noise deps/noise/noise.c src/world.c
+python server.py [HOST [PORT]]
+\end{DoxyVerb}
+ \hypertarget{md_README_autotoc_md25}{}\doxysubsection{Controls}\label{md_README_autotoc_md25}
+
+\begin{DoxyItemize}
+\item WASD to move forward, left, backward, right.
+\item Space to jump.
+\item Hold Left Alt key to move around twice as fast
+\item Left Click to destroy a block.
+\item Right Click or Cmd + Left Click to create a block.
+\item Ctrl + Right Click to toggle a block as a light source.
+\item 1-\/9 to select the block type to create.
+\item E to cycle through the block types.
+\item Tab to toggle between walking and flying.
+\item ZXCVBN to move in exact directions along the XYZ axes.
+\item Left shift to zoom.
+\item F to show the scene in orthographic mode.
+\item O to observe players in the main view.
+\item P to observe players in the picture-\/in-\/picture view.
+\item T to type text into chat.
+\item Forward slash (/) to enter a command.
+\item Backquote (\`{}) to write text on any block (signs).
+\item Arrow keys emulate mouse movement.
+\item Enter emulates mouse click.
+\item Q to quit the game.
+\item M to terminate the game and terminal without saving.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md26}{}\doxysubsection{Chat Commands}\label{md_README_autotoc_md26}
+\begin{DoxyVerb}/goto [NAME]
+\end{DoxyVerb}
+ Teleport to another user. If NAME is unspecified, a random user is chosen. \begin{DoxyVerb}/list
+\end{DoxyVerb}
+ Display a list of connected users. \begin{DoxyVerb}/login NAME
+\end{DoxyVerb}
+ Switch to another registered username. The login server will be re-\/contacted. The username is case-\/sensitive. \begin{DoxyVerb}/logout
+\end{DoxyVerb}
+ Unauthenticate and become a guest user. Automatic logins will not occur again until the /login command is re-\/issued. \begin{DoxyVerb}/offline [FILE]
+\end{DoxyVerb}
+ Switch to offline mode. FILE specifies the save file to use and defaults to \char`\"{}craft\char`\"{}. \begin{DoxyVerb}/online HOST [PORT]
+\end{DoxyVerb}
+ Connect to the specified server. \begin{DoxyVerb}/pq P Q
+\end{DoxyVerb}
+ Teleport to the specified chunk. \begin{DoxyVerb}/spawn
+\end{DoxyVerb}
+ Teleport back to the spawn point.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/random}
+
+\end{DoxyCode}
+
+
+Gives you a random block.\hypertarget{md_README_autotoc_md27}{}\doxysubsection{Block Commands}\label{md_README_autotoc_md27}
+You can select a block through the command line. Just type in the number that corresponds to the block you wish to use.
+
+
+\begin{DoxyItemize}
+\item 0-\/ grass
+\item 1-\/ sand
+\item 2-\/ stone
+\item 3-\/ brick
+\item 4-\/ wood
+\item 5-\/ cement
+\item 6-\/ dirt
+\item 7-\/ plank
+\item 8-\/ snow
+\item 9-\/ glass
+\item 10-\/ cobble
+\item 11-\/ light stone
+\item 12-\/ dark stone
+\item 13-\/ chest
+\item 14-\/ leaves
+\item 15-\/ tall grass
+\item 16-\/ yellow flower
+\item 17-\/ red flower
+\item 18-\/ purple flower
+\item 19-\/ sunflower
+\item 20-\/ white flower
+\item 21-\/ blue flower
+\item 22-\/ yellow block
+\item 23-\/ light green block
+\item 24-\/ green block
+\item 25-\/ teal block
+\item 26-\/ dark green block
+\item 27-\/ brown-\/green block
+\item 28-\/ dark gray block
+\item 29-\/ indigo block
+\item 30-\/ light gray block
+\item 31-\/ gray block
+\item 32-\/ purple block
+\item 33-\/ red block
+\item 34-\/ light red block
+\item 35-\/ pink block
+\item 36-\/ very light green block
+\item 37-\/ brown-\/yellow block
+\item 38-\/ black block
+\item 39-\/ very dark blue block
+\item 40-\/ dark purple block
+\item 41-\/ dusty red block
+\item 42-\/ brown block
+\item 43-\/ orange block
+\item 44-\/ tan block
+\item 45-\/ cream block
+\item 46-\/ dark blue block
+\item 47-\/ blue block
+\item 48-\/ light blue block
+\item 49-\/ turquoise block
+\item 50-\/ powder blue block
+\item 51-\/ white block
+\item 52-\/ blue-\/gray block
+\item 53-\/ purple-\/gray block
+\item 54-\/ diamond
+\item 55-\/ ruby
+\item 56-\/ gold
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md28}{}\doxysubsection{Adding Block Textures}\label{md_README_autotoc_md28}
+Adding block textures is a very simple process. It involves only a few steps\+:
+
+
+\begin{DoxyItemize}
+\item Download textures/\href{https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/textures/texture.png}{\texttt{ texture.\+png}} and add your block texture(s) to the grid
+\item Replace the original \href{https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/textures/texture.png}{\texttt{ texture.\+png}} file with your modified copy
+\item Open src/\href{https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/item.h}{\texttt{ item.\+h}} and define your block at the bottom of the list of definitions ex. {\ttfamily \#define NEWBLOCK 64}
+\item Open src/\href{https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/item.c}{\texttt{ item.\+c}} and add your newly defined block to the array of blocks\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const int items [] = \{}
+\DoxyCodeLine{    OLDBLOCK,}
+\DoxyCodeLine{    NEWBLOCK}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+\item In src/\href{https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/item.c}{\texttt{ item.\+c}} add your new block to {\ttfamily const int blocks\mbox{[}256\mbox{]}\mbox{[}6\mbox{]} = \{ \}} list.
+\end{DoxyItemize}
+
+This list defines which texture each block is given. It accepts 6 values (left, right, top, bottom, front, back). Each value is the location of a 16x16 pixel block on the \href{https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/textures/texture.png}{\texttt{ texture.\+png}} image, starting from the bottom left corner at 0.
+
+{\bfseries{Example\+:}} I want to define sand within the list. You can see that sand is on the bottom row of \href{https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/textures/texture.png}{\texttt{ texture.\+png}}, and one space in from the left. This means that sands texture map is (1, 1, 1, 1, 1, 1).\hypertarget{md_README_autotoc_md29}{}\doxysubsection{Screenshot}\label{md_README_autotoc_md29}
+\hypertarget{md_README_autotoc_md30}{}\doxysubsection{Implementation Details}\label{md_README_autotoc_md30}
+\hypertarget{md_README_autotoc_md31}{}\doxysubsubsection{Terrain Generation}\label{md_README_autotoc_md31}
+The terrain is generated using Simplex noise -\/ a deterministic noise function seeded based on position. So the world will always be generated the same way in a given location.
+
+The world is split up into 32x32 block chunks in the XZ plane (Y is up). This allows the world to be “infinite” (floating point precision is currently a problem at large X or Z values) and also makes it easier to manage the data. Only visible chunks need to be queried from the database.\hypertarget{md_README_autotoc_md32}{}\doxysubsubsection{Rendering}\label{md_README_autotoc_md32}
+Only exposed faces are rendered. This is an important optimization as the vast majority of blocks are either completely hidden or are only exposing one or two faces. Each chunk records a one-\/block width overlap for each neighboring chunk so it knows which blocks along its perimeter are exposed.
+
+Only visible chunks are rendered. A naive frustum-\/culling approach is used to test if a chunk is in the camera’s view. If it is not, it is not rendered. This results in a pretty decent performance improvement as well.
+
+Chunk buffers are completely regenerated when a block is changed in that chunk, instead of trying to update the VBO.
+
+Text is rendered using a bitmap atlas. Each character is rendered onto two triangles forming a 2D rectangle.
+
+“\+Modern” Open\+GL is used -\/ no deprecated, fixed-\/function pipeline functions are used. Vertex buffer objects are used for position, normal and texture coordinates. Vertex and fragment shaders are used for rendering. Matrix manipulation functions are in matrix.\+c for translation, rotation, perspective, orthographic, etc. matrices. The 3D models are made up of very simple primitives -\/ mostly cubes and rectangles. These models are generated in code in cube.\+c.
+
+Transparency in glass blocks and plants (plants don’t take up the full rectangular shape of their triangle primitives) is implemented by discarding magenta-\/colored pixels in the fragment shader.\hypertarget{md_README_autotoc_md33}{}\doxysubsubsection{Database}\label{md_README_autotoc_md33}
+User changes to the world are stored in a sqlite database. Only the delta is stored, so the default world is generated and then the user changes are applied on top when loading.
+
+The main database table is named “block” and has columns p, q, x, y, z, w. (p, q) identifies the chunk, (x, y, z) identifies the block position and (w) identifies the block type. 0 represents an empty block (air).
+
+In game, the chunks store their blocks in a hash map. An (x, y, z) key maps to a (w) value.
+
+The y-\/position of blocks are limited to 0 \texorpdfstring{$<$}{<}= y \texorpdfstring{$<$}{<} 256. The upper limit is mainly an artificial limitation to prevent users from building unnecessarily tall structures. Users are not allowed to destroy blocks at y = 0 to avoid falling underneath the world.\hypertarget{md_README_autotoc_md34}{}\doxysubsubsection{Multiplayer}\label{md_README_autotoc_md34}
+Multiplayer mode is implemented using plain-\/old sockets. A simple, ASCII, line-\/based protocol is used. Each line is made up of a command code and zero or more comma-\/separated arguments. The client requests chunks from the server with a simple command\+: C,p,q,key. “\+C” means “\+Chunk” and (p, q) identifies the chunk. The key is used for caching -\/ the server will only send block updates that have been performed since the client last asked for that chunk. Block updates (in realtime or as part of a chunk request) are sent to the client in the format\+: B,p,q,x,y,z,w. After sending all of the blocks for a requested chunk, the server will send an updated cache key in the format\+: K,p,q,key. The client will store this key and use it the next time it needs to ask for that chunk. Player positions are sent in the format\+: P,pid,x,y,z,rx,ry. The pid is the player ID and the rx and ry values indicate the player’s rotation in two different axes. The client interpolates player positions from the past two position updates for smoother animation. The client sends its position to the server at most every 0.\+1 seconds (less if not moving).
+
+Client-\/side caching to the sqlite database can be performance intensive when connecting to a server for the first time. For this reason, sqlite writes are performed on a background thread. All writes occur in a transaction for performance. The transaction is committed every 5 seconds as opposed to some logical amount of work completed. A ring / circular buffer is used as a queue for what data is to be written to the database.
+
+In multiplayer mode, players can observe one another in the main view or in a picture-\/in-\/picture view. Implementation of the PnP was surprisingly simple -\/ just change the viewport and render the scene again from the other player’s point of view.\hypertarget{md_README_autotoc_md35}{}\doxysubsubsection{Collision Testing}\label{md_README_autotoc_md35}
+Hit testing (what block the user is pointing at) is implemented by scanning a ray from the player’s position outward, following their sight vector. This is not a precise method, so the step rate can be made smaller to be more accurate.
+
+Collision testing simply adjusts the player’s position to remain a certain distance away from any adjacent blocks that are obstacles. (Clouds and plants are not marked as obstacles, so you pass right through them.)\hypertarget{md_README_autotoc_md36}{}\doxysubsubsection{Sky Dome}\label{md_README_autotoc_md36}
+A textured sky dome is used for the sky. The X-\/coordinate of the texture represents time of day. The Y-\/values map from the bottom of the sky sphere to the top of the sky sphere. The player is always in the center of the sphere. The fragment shaders for the blocks also sample the sky texture to determine the appropriate fog color to blend with based on the block’s position relative to the backing sky.\hypertarget{md_README_autotoc_md37}{}\doxysubsubsection{Ambient Occlusion}\label{md_README_autotoc_md37}
+Ambient occlusion is implemented as described on this page\+:
+
+\href{http://0fps.wordpress.com/2013/07/03/ambient-occlusion-for-minecraft-like-worlds/}{\texttt{ http\+://0fps.\+wordpress.\+com/2013/07/03/ambient-\/occlusion-\/for-\/minecraft-\/like-\/worlds/}}\hypertarget{md_README_autotoc_md38}{}\doxysubsubsection{Dependencies}\label{md_README_autotoc_md38}
+
+\begin{DoxyItemize}
+\item GLEW is used for managing Open\+GL extensions across platforms.
+\item GLFW is used for cross-\/platform window management.
+\item CURL is used for HTTPS / SSL POST for the authentication process.
+\item lodepng is used for loading PNG textures.
+\item sqlite3 is used for saving the blocks added / removed by the user.
+\item tinycthread is used for cross-\/platform threading. 
+\end{DoxyItemize}
