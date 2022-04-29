@@ -3345,13 +3345,10 @@ void reset_model()
 }
 
 int main(int argc, char **argv)
-{
-    //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/125
-    TEST_ASSERT(is_plant(17) == 1);
-    // INITIALIZATION //
+{// INITIALIZATION //
 
     //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/125
-    // lines 3354-3361 broken, will revisit later, commenting out for now.
+    // lines 3351-3358 broken, will revisit later, commenting out for now.
     // float* test_x;
     // float* test_y;
     // float* test_z;
@@ -3361,8 +3358,8 @@ int main(int argc, char **argv)
     // TEST_ASSERT(collide_no_clip(1, test_x, test_y, test_z));
 
     //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/125
-    TEST_ASSERT(chunked(32) == 1);
-    TEST_ASSERT(highest_block(1, 1) != INT_MAX);
+    TEST_ASSERT(is_plant(17) == 1);
+
     // INITIALIZATION //
     curl_global_init(CURL_GLOBAL_DEFAULT);
     srand(time(NULL));
