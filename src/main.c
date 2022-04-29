@@ -3362,6 +3362,7 @@ int main(int argc, char **argv)
 
     //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/125
     TEST_ASSERT(chunked(32) == 1);
+    TEST_ASSERT(highest_block(1, 1) != INT_MAX);
     // INITIALIZATION //
     curl_global_init(CURL_GLOBAL_DEFAULT);
     srand(time(NULL));
