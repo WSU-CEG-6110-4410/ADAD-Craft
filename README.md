@@ -332,4 +332,10 @@ Testing has been completed with the [Unity](https://github.com/ThrowTheSwitch/Un
 - `TEST_ASSERT_FALSE(condition)` (fails if the code within the condition evaluates to true)
 - `TEST_ASSERT(condition)` (a simpler way of calling TEST_ASSET_TRUE)
 
+Files related to unity testing can be found within [ADAD-Craft/src](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/tree/master/src). These files include:
+
+- [unity.c](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/unity.c)
+- [unity.h](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/unity.h)
+- [unity_internals.h](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/src/unity_internals.h)
+
 If you have any other concerns about Unity's testing framework, then here is a link to their [getting started guide](https://github.com/ThrowTheSwitch/Unity/blob/master/docs/UnityGettingStartedGuide.md).
