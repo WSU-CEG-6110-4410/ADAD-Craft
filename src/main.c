@@ -3364,6 +3364,7 @@ int main(int argc, char **argv)
     TEST_ASSERT(get_daylight() != -1);
     TEST_ASSERT(get_block(32, 32, 1) == 0);
     TEST_ASSERT(is_transparent(17) == 1);
+    TEST_ASSERT(is_destructable(0) == 0);
 
     // INITIALIZATION //
     curl_global_init(CURL_GLOBAL_DEFAULT);
