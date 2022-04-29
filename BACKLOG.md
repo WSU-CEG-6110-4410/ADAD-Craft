@@ -127,6 +127,18 @@ As a developer, I want doxygen pages that organize all of our projects comments 
 
 Status: Completed Shawn Ruby. Sprint 3
 Pts 1 PO Priority 1: Task 001, Background research on doxygen document generation. Assigned Shawn Ruby
-Pts 2 Task 002: Clone doxygen repo and install it on local machine. Assigned Shawn Ruby
-Pts 1 Task 003: Generate doxygen dconfig file and update it with project information. Assigned Shawn Ruby
-Pts 1 Task 004: Build doxygen website based off of dconfig file. Assigned Shawn Ruby
+Pts 2 Task 002, Clone doxygen repo and install it on local machine. Assigned Shawn Ruby
+Pts 1 Task 003, Generate doxygen dconfig file and update it with project information. Assigned Shawn Ruby
+Pts 1 Task 004, Build doxygen website based off of dconfig file. Assigned Shawn Ruby
+
+### User Story #122
+
+[Issue Link](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/122)
+As a developer, I want the project to include unit tests, so that I can test things.
+
+Status: Completed Daniel King. Sprint 3
+Pts 3 PO Priority 1: Task 001, Background research on Unity testing framework for C software development. Assigned Daniel King
+Pts 1 Task 002, Add unity.c to project repository src folder. Assigned Daniel King
+Pts 1 Task 003, Add unity.h to project repository src folder. Assigned Daniel King
+Pts 1 Task 004, Add unity_internals.h to project repository src folder. Assigned Daniel King
+Pts 4 Task 005, Implement unit tests in src/main.c by including unity.h and writing test cases using unity's framework. Assigned Daniel King
