@@ -101,6 +101,17 @@ Status: Completed Samantha Stetz Sprint 1
 Pts 1 PO Priority 1: Task 029, Added 'Q' as a key binding in config.h. Assigned Samantha Stetz
 Pts 1 Task 030, Included an if statement in main.c to save and quit the game if Q is pressed. Assigned Samantha Stetz
 
+### User Story #19
+
+[Issue Link](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/19)
+As a user, I want to use a command to travel to a previously saved location so that I can instantly go back to a location
+
+Status: Assigned Joseph Behr
+Pts 1 PO Priority 1: Task 001, Figure out where the command table is located. Assigned Joseph Behr
+Pts 2 Task 002, Figure out how to register coordinates for fast travel. Assigned Joseph Behr
+Pts 4 Task 003, Implement coordinate saving bound by keywords (i.e "saved1", "saved2", etc). Assigned Joseph Behr
+Pts 3 Task 004, Tie together coordinate saving with a command to travel to those previously saved coordinates. Assigned Joseph Behr
+
 ### User Story #64
 
 [Issue Link](github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/64)
