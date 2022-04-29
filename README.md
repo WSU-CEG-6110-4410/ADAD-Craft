@@ -361,3 +361,25 @@ http://0fps.wordpress.com/2013/07/03/ambient-occlusion-for-minecraft-like-worlds
 - lodepng is used for loading PNG textures.
 - sqlite3 is used for saving the blocks added / removed by the user.
 - tinycthread is used for cross-platform threading.
+
+#### Documentation
+
+Documentation has been completed through the use of [Doxygen](https://www.doxygen.nl/manual/install.html). The configuration file is located at [ADAD-Craft/dconfig](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/dconfig).
+
+To update the configuration file:
+
+- Make changes to config file at [ADAD-Craft/dconfig](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/blob/master/dconfig)
+- Open your terminal on a machine with doxygen installed and change directories to your project repository
+- Use the command: `doxygen dconfig`
+
+That command will recompile the doxygen website based on the new settings in your dconfig file. You can also use `doxygen -g config_file_name` to create a fresh config file to work out of for your project.
+
+### Testing
+
+Testing has been completed with the [Unity](https://github.com/ThrowTheSwitch/Unity) testing library for C. The Unity library features a variety of tests for C programming, most of which are described on their GitHub repository linked above. A few of the tests that you can find within our program are:
+
+- `TEST_ASSERT_TRUE(condition)` (fails if the code within the condition evaluates to false)
+- `TEST_ASSERT_FALSE(condition)` (fails if the code within the condition evaluates to true)
+- `TEST_ASSERT(condition)` (a simpler way of calling TEST_ASSET_TRUE)
+
+If you have any other concerns about Unity's testing framework, then here is a link to their [getting started guide](https://github.com/ThrowTheSwitch/Unity/blob/master/docs/UnityGettingStartedGuide.md).
