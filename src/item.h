@@ -26,6 +26,7 @@
 #define WHITE_FLOWER 22
 #define BLUE_FLOWER 23
 #define OAK_SAPLING 24
+#define BIRCH_SAPLING 25
 #define COLOR_00 32
 #define COLOR_01 33
 #define COLOR_02 34
@@ -61,6 +62,7 @@
 #define DIAMOND 64
 #define RUBY 65
 #define GOLD 66
+#define BIRCH_WOOD 67
 
 extern const int items[];
 extern const int item_count;

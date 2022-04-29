@@ -2,7 +2,9 @@
 #include "util.h"
 
 //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/118
-//! Defined Oak-Sapling so that it is an obtainable item
+//! Defined Oak/Birch-Sapling so that it is an obtainable item
+//! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/130
+//! Defined Birch logs so that it is an obtainable item
 const int items[] = {
     // items the user can build
     // To add items to the game, add them to the end of this list. Then add them to int blocks[256][6] and or int plants[256] located beneath this list in item.c
@@ -30,6 +32,7 @@ const int items[] = {
     WHITE_FLOWER,
     BLUE_FLOWER,
     OAK_SAPLING,
+    BIRCH_SAPLING,
     COLOR_00,
     COLOR_01,
     COLOR_02,
@@ -64,10 +67,14 @@ const int items[] = {
     COLOR_31,
     DIAMOND,
     RUBY,
-    GOLD};
+    GOLD,
+    BIRCH_WOOD,
+};
 
 const int item_count = sizeof(items) / sizeof(int);
 
+//! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/130
+//! Added texture mapping for birch logs
 const int blocks[256][6] = {
     // w => (left, right, top, bottom, front, back) tiles
     // All textures are pulled from /textures/texture.png
@@ -140,10 +147,11 @@ const int blocks[256][6] = {
     {144, 144, 144, 144, 144, 144}, // Diamond texture
     {145, 145, 145, 145, 145, 145}, // Ruby texture
     {146, 146, 146, 146, 146, 146}, // Gold texture
+    {163, 163, 147, 147, 163, 163},  // Birch log texture
 };
 
 //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/118
-//! Adds the texture for the Oak-Sapling from textures.png
+//! Adds the texture for the Oak/Birch-Sapling from textures.png
 //! The number represents the slot in textures.png where the texture is present
 const int plants[256] = {
     // w => tile
@@ -156,10 +164,11 @@ const int plants[256] = {
     53,                                                // 22 - white flower
     54,                                                // 23 - blue flower
     55,                                                // 24 - oak sapling
+    56,                                                // 25 - birch sapling
 };
 
 //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/118
-//! Prevents Oak-Saplings from being considered as a block, and therefore having collisions with the player.
+//! Prevents Oak/Birch-Saplings from being considered as a block, and therefore having collisions with the player.
 int is_plant(int w)
 {
     switch (w)
@@ -172,6 +181,7 @@ int is_plant(int w)
     case WHITE_FLOWER:
     case BLUE_FLOWER:
     case OAK_SAPLING:
+    case BIRCH_SAPLING:
         return 1;
     default:
         return 0;
