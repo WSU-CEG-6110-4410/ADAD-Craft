@@ -210,44 +210,45 @@ You can select a block through the command line. Just type in the number that co
 - 19- sunflower
 - 20- white flower
 - 21- blue flower
-- 22- yellow block
-- 23- light green block
-- 24- green block
-- 25- teal block
-- 26- dark green block
-- 27- brown-green block
-- 28- dark gray block
-- 29- indigo block
-- 30- light gray block
-- 31- gray block
-- 32- purple block
-- 33- red block
-- 34- light red block
-- 35- pink block
-- 36- very light green block
-- 37- brown-yellow block
-- 38- black block
-- 39- very dark blue block
-- 40- dark purple block
-- 41- dusty red block
-- 42- brown block
-- 43- orange block
-- 44- tan block
-- 45- cream block
-- 46- dark blue block
-- 47- blue block
-- 48- light blue block
-- 49- turquoise block
-- 50- powder blue block
-- 51- white block
-- 52- blue-gray block
-- 53- purple-gray block
-- 54- diamond
-- 55- ruby
-- 56- gold
-- 57- oak sapling
-- 58- birch sapling
+- 22- oak sapling
+- 23- birch sapling
+- 24- yellow block
+- 25- light green block
+- 26- green block
+- 27- teal block
+- 28- dark green block
+- 29- brown-green block
+- 30- dark gray block
+- 31- indigo block
+- 32- light gray block
+- 33- gray block
+- 34- purple block
+- 35- red block
+- 36- light red block
+- 37- pink block
+- 38- very light green block
+- 39- brown-yellow block
+- 40- black block
+- 41- very dark blue block
+- 42- dark purple block
+- 43- dusty red block
+- 44- brown block
+- 45- orange block
+- 46- tan block
+- 47- cream block
+- 48- dark blue block
+- 49- blue block
+- 50- light blue block
+- 51- turquoise block
+- 52- powder blue block
+- 53- white block
+- 54- blue-gray block
+- 55- purple-gray block
+- 56- diamond
+- 57- ruby
+- 58- gold
 - 59- birch wood
+- 60- black stone
 
 ### Adding Block Textures
 

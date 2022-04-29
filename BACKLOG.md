@@ -26,7 +26,7 @@ Pts 2 Task 004, Update src/item.h to include diamond, gold, ruby. Assigned Shawn
 
 ### User Story #71
 
-[Issue Link](github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/71)
+[Issue Link](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/71)
 As a Developer, I want to terminate the complete session of the game by using a key button 'M' so that it closes the game all at once - Assigned Fayazuddin Mohammed
 
 Status: Completed Fayazuddin Mohammed. Sprint 2,3
@@ -46,7 +46,7 @@ Pts 1, Task 002, Modify variables in config.h to increase the day/night length.
 
 ### User Story #54
 
-[Issue Link](github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/54)
+[Issue Link](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/54)
 Implementation of increasing the zooming length so that I can see the clouds very close to me from the ground - Assigned Fayazuddin Mohammed
 
 Status: Completed Fayazuddin Mohammed. Sprint 2,3,4
@@ -57,7 +57,7 @@ Pts 3 Task 004, Update src/main.c making Doxygen comments,Literate Programming a
 
 ### User Story #87
 
-[Issue Link] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/87
+[Issue Link](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/87)
 As a developer, I want clear definitions of minecraft units which are used in Main.c Shawn Ruby #87
 
 Status: Completed Shawn Ruby. Sprint 2
@@ -76,16 +76,16 @@ Pts 2 Task 002, figure out how the program processes inputs. Assigned Daniel Kin
 Pts 3 Task 003, figure out how the program causes the player to gain altitude in response to an input. Assigned Daniel King
 Pts 2 Task 004, remove limit on number of jumps allowed. Assigned Daniel King
 
-### User Story 11
+### User Story #11
 
-[Issue Link](github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/11)
+[Issue Link](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/11)
 As a player, I want the clouds to move so that I can feel more immersed in the game.
 
 Status: To-Do Samantha Stetz Sprint 1, 2
 
-### User Story 12
+### User Story #12
 
-[Issue Link](github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/12)
+[Issue Link](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/12)
 As a player, I want an interactive list of all blocks so that I can choose a block without having to cycle through the whole list.
 
 Status: In Progress Samantha Stetz Sprint 1, 2
@@ -94,7 +94,7 @@ Pts 2 Task 048, Added block guide to README.md file for choosing a block from th
 
 ### User Story #28
 
-[Issue Link](github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/28)
+[Issue Link](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/28)
 As a player, I want a quit button so that I can quit the game easily.
 
 Status: Completed Samantha Stetz Sprint 1
@@ -114,7 +114,7 @@ Pts 3 Task 004, Tie together coordinate saving with a command to travel to those
 
 ### User Story #64
 
-[Issue Link](github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/64)
+[Issue Link](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/64)
 As a player, I want to have a way to randomly select a block so that I can have more fun in the game.
 
 Status: Completed Samantha Stetz Sprint 2
@@ -123,7 +123,7 @@ Pts 1 Task 066, Added information about random command to README.md. Assigned Sa
 
 ### User Story #68
 
-[Issue Link](github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/68)
+[Issue Link](https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/68)
 As a player, I want to be able to teleport to wherever I want to on the map so that travel is easier.
 
 Status: Completed Samantha Stetz Sprint 2
