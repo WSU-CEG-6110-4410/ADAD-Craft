@@ -3345,7 +3345,8 @@ void reset_model()
 }
 
 int main(int argc, char **argv)
-{// INITIALIZATION //
+{
+    // INITIALIZATION //
 
     //! [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/125
     // lines 3351-3358 broken, will revisit later, commenting out for now.
