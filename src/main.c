@@ -2356,6 +2356,7 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods) {
         if (key == CRAFT_KEY_OBSERVE_INSET) {
             g->observe2 = (g->observe2 + 1) % g->player_count;
         }
+<<<<<<< Updated upstream
 
 	/// If 'Q' is pressed, the game quits by satisfying the leave
 	/// conditions of both the inner and outer loops of the main
@@ -2365,6 +2366,26 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods) {
 	    playing = 0;
 	    running = 0;
 	} 
+=======
+        /// If 'Q' is pressed, the game quits by satisfying the leave
+        /// conditions of both the inner and outer loops of the main
+        /// function.
+        /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/30
+        if (key == CRAFT_KEY_QUIT)
+        {
+            playing = 0;
+            running = 0;
+        }
+        /***********************************Pre-Condtion Programming by contract********/
+        /// M Key has been bound to quit the game
+        ///Terminating of the window without getting game saved on click on Key M*/
+        /// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/71 
+        if (key == CRAFT_KEY_CLOSE_TERMINAL) //Q key is bound to CRAFT_KEY_CLOSE_TERMINAL
+        {
+            glfwTerminate();
+        }
+        /***********************************Post-Condtion Programming by contract********/
+>>>>>>> Stashed changes
     }
 }
 
@@ -2515,6 +2536,7 @@ void handle_movement(double dt) {
         g->ortho = glfwGetKey(g->window, CRAFT_KEY_ORTHO) ? 64 : 0;
         /// Zoom parameter values have been changed to view the clouds from the ground very closely
         /// [issue] github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/54 
+<<<<<<< Updated upstream
         g->fov = glfwGetKey(g->window, CRAFT_KEY_ZOOM) ? 15 : 105;
         if (glfwGetKey(g->window, CRAFT_KEY_FORWARD)) sz--;
         if (glfwGetKey(g->window, CRAFT_KEY_BACKWARD)) sz++;
@@ -2525,6 +2547,29 @@ void handle_movement(double dt) {
         if (glfwGetKey(g->window, GLFW_KEY_UP)) s->ry += m;
         if (glfwGetKey(g->window, GLFW_KEY_DOWN)) s->ry -= m;
         
+=======
+        /// Pre and post condition remains same as it is constanst value that has been assigned to zooming feature
+        /****************Begining of Programming by contract***/
+        g->fov = glfwGetKey(g->window, CRAFT_KEY_ZOOM) ? 15 : 105; // Q key is bound to CRAFT_KEY_ZOOM 
+        /****************Begining of Programming by contract***/
+        /// Pre and post condition remains same as it is constanst value that has been assigned to zooming feature
+        if (glfwGetKey(g->window, CRAFT_KEY_FORWARD))
+            sz--;
+        if (glfwGetKey(g->window, CRAFT_KEY_BACKWARD))
+            sz++;
+        if (glfwGetKey(g->window, CRAFT_KEY_LEFT))
+            sx--;
+        if (glfwGetKey(g->window, CRAFT_KEY_RIGHT))
+            sx++;
+        if (glfwGetKey(g->window, GLFW_KEY_LEFT))
+            s->rx -= m;
+        if (glfwGetKey(g->window, GLFW_KEY_RIGHT))
+            s->rx += m;
+        if (glfwGetKey(g->window, GLFW_KEY_UP))
+            s->ry += m;
+        if (glfwGetKey(g->window, GLFW_KEY_DOWN))
+            s->ry -= m;
+>>>>>>> Stashed changes
     }
     float vx, vy, vz;
     get_motion_vector(g->flying, sz, sx, s->rx, s->ry, &vx, &vy, &vz);
