@@ -2622,6 +2622,8 @@ void parse_command(const char *buffer, int forward)
     {
         int min = 0;
         int max = item_count - 1;
+	TEST_ASSERT_EQUAL_INT(min, 0);
+	TEST_ASSERT_EQUAL_INT(max, (item_count - 1));
         if (min >= 0 && max <= (item_count - 1))
         {
             int random = (rand() % (max - min + 1)) + min;
