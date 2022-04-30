@@ -2665,6 +2665,8 @@ void parse_command(const char *buffer, int forward)
     /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/69
     /// Information about this command can be found in the README.md file
     /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/70
+    /// Testing of the code can be found below
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/151
     int x, y, z;
     State *s = &g->players->state;
     if (sscanf(buffer, "/teleport %d %d %d", &x, &y, &z) == 3)
@@ -2672,44 +2674,34 @@ void parse_command(const char *buffer, int forward)
         s->x = x;
         s->y = y;
         s->z = z;
+	TEST_ASSERT_EQUAL_INT(s->x, x);
+	TEST_ASSERT_EQUAL_INT(s->y, y);
+	TEST_ASSERT_EQUAL_INT(s->z, z);
     }
 
     /// Allows the user to teleport using only one coordinate
     /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/74
     /// Information about these commands can be found in the README.md file
     /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/70
+    /// Testing of the code can be found below
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/151
+
     // x-coordinate teleport
-/// DoxygenTextureComments
-    if (sscanf(buffer, "/teleport_x %d", &x) == 1 | sscanf(buffer, "/portx %d", &x) == 1)
-    {
-        s->x = x;
-    }
-
-    // y-coordinate teleport
-    if (sscanf(buffer, "/teleport_y %d", &y) == 1 | sscanf(buffer, "/porty %d", &y) == 1)
-    {
-        s->y = y;
-    }
-
-    // z-coordinate teleport
-    if (sscanf(buffer, "/teleport_z %d", &z) == 1 | sscanf(buffer, "/portz %d", &z) == 1)
-    {
-        s->z = z;
-    }
-        
     if(sscanf(buffer, "/portx %d", &x) == 1) {
 	s->x = x;
+	TEST_ASSERT_EQUAL_INT(s->x, x);
     }
 
     // y-coordinate teleport
     if(sscanf(buffer, "/porty %d", &y) == 1) {
 	s->y = y;
+	TEST_ASSERT_EQUAL_INT(s->y, y);
     }
 
     // z-coordinate teleport
     if(sscanf(buffer, "/portz %d", &z) == 1) {
 	s->z = z;
-/// master
+	TEST_ASSERT_EQUAL_INT(s->z, z);
     }
 
     /// Command to change the time of day to morning (dawn)
