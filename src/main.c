@@ -2633,6 +2633,8 @@ void parse_command(const char *buffer, int forward)
     /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/40
     /// The guide to use this is in README.md
     /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/48
+    /// Testing of the code can be found below
+    /// [issue] https://github.com/WSU-CEG-6110-4410/ADAD-Craft/issues/148
     char bufferCopy[1024];
     strcpy(bufferCopy, buffer);
     char *command = strtok(bufferCopy, "/");
@@ -2655,6 +2657,7 @@ void parse_command(const char *buffer, int forward)
         if (num >= 0 && num <= (item_count - 1))
         {
             g->item_index = atoi(command);
+	    TEST_ASSERT_EQUAL_INT(g->item_index, num);
         }
     }
 
